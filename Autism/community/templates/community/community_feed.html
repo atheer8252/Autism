@@ -210,6 +210,54 @@
   cursor:pointer;
 }
 
+.menu-wrapper{
+    position:relative;
+}
+
+.menu-btn{
+    border:none;
+    background:none;
+    font-size:24px;
+    color:#999;
+    cursor:pointer;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:40px;
+    left:0;
+
+    background:white;
+    border:1px solid #ececec;
+    border-radius:18px;
+
+    min-width:160px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+    display:none;
+    overflow:hidden;
+
+    z-index:100;
+}
+
+.dropdown-menu a{
+    display:block;
+    padding:14px 18px;
+    text-decoration:none;
+    color:#444;
+    font-size:14px;
+    transition:0.8s;
+}
+
+.dropdown-menu a:hover{
+    background:#f7f7f7;
+}
+
+.menu-wrapper:hover .dropdown-menu{
+    display:block;
+}
+
 .post-text{
   line-height:1.8;
   color:#555;
@@ -414,7 +462,22 @@
 
           </div>
 
-          <div class="menu">⋯</div>
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -465,7 +528,23 @@
 
           </div>
 
-          <div class="menu">⋯</div>
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+                   
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -516,7 +595,23 @@
 
           </div>
 
-          <div class="menu">⋯</div>
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+                    
+
+                </div>
+
+            </div>
 
         </div>
 
