@@ -1,4 +1,4 @@
-# Autism
+# Ehtiwa
 
 ## Description:
 Ehtiwa is an intelligent support platform designed to help children and parents through interactive tracking tools, supportive community features, and educational activities.
@@ -29,6 +29,6 @@ The platform provides a safe and user-friendly environment where parents can mon
 
 ## Documentation
 
- - User Stories: [View PDF](./files/User Story.pdf)
- - UML Diagram: [View PDF](./files/UML.pdf)
- - Wireframe: [View PDF](./files/wireframe.pdf)
+- User Stories: [View PDF](./Files/UserStory.pdf)
+- UML Diagram: [View PDF](./Files/UML.pdf)
+- Wireframe: [View PDF](./Files/wireframe.pdf)
