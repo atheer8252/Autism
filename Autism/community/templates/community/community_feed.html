@@ -1,0 +1,326 @@
+{%extends 'main/base.html'%}
+{%load static%}
+{% block title %}المجتمع{% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'community/css/style.css' %}"> {% endblock %}
+
+
+{% block content %}
+    <div class="community-container">
+        <!-- SIDEBAR -->
+
+    <div class="community-sidebar">
+
+      <div class="card">
+
+        <h3>التصنيفات</h3>
+
+        <p class="sub">
+          اختر القسم المناسب
+        </p>
+
+        <div class="topic">
+
+          <div class="topic-left">
+
+            <div class="icon green">
+              🌙
+            </div>
+
+            <span>النوم</span>
+
+          </div>
+
+          <div class="count">12</div>
+
+        </div>
+
+        <div class="topic">
+
+          <div class="topic-left">
+
+            <div class="icon orange">
+              🍼
+            </div>
+
+            <span>التغذية</span>
+
+          </div>
+
+          <div class="count">8</div>
+
+        </div>
+
+        <div class="topic">
+
+          <div class="topic-left">
+
+            <div class="icon blue">
+              🧸
+            </div>
+
+            <span>اللعب</span>
+
+          </div>
+
+          <div class="count">24</div>
+
+        </div>
+
+        <div class="topic">
+
+          <div class="topic-left">
+
+            <div class="icon mint">
+              📚
+            </div>
+
+            <span>التعليم</span>
+
+          </div>
+
+          <div class="count">5</div>
+
+        </div>
+
+        <a class="btn" href="{%url 'community:create_post_view'%}">
+          + إنشاء نقاش
+        </a>
+
+      </div>
+
+      <div class="card policy">
+
+        <div class="shield">
+          🛡️
+        </div>
+
+        <h4>سياسة المجتمع</h4>
+
+        <p>
+          نحافظ على بيئة محترمة وآمنة للجميع،
+          يرجى الإبلاغ عن أي إساءة.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main">
+
+      <input
+        type="text"
+        class="search"
+        placeholder="ابحث عن نقاشات أو تجارب..."
+      >
+
+      <!-- POST 1 -->
+
+      <div class="post">
+
+        <div class="post-header">
+
+          <div class="user">
+
+            <div class="avatar red">
+              س
+            </div>
+
+            <div class="user-info">
+              <h4>سارة</h4>
+              <span>أم جديدة • منذ ساعتين</span>
+            </div>
+
+          </div>
+
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post-text">
+          هل أحد طفله صار يرفض النوم فجأة؟
+          أحاول أنظّم نومه لكن كل مرة يبدأ يضحك ويلعب 😭
+        </div>
+
+        <div class="tags">
+
+          <a href="#" class="tag">#النوم</a>
+          <a href="#" class="tag">#الأطفال</a>
+          <a  href="#" class="tag">#تجارب_الأمهات</a>
+
+        </div>
+
+        <div class="post-footer">
+
+          <div class="stats">
+            <span>♡ 24 إعجاب</span>
+            <span>💬 15 تعليق</span>
+          </div>
+
+          <a href="{%url 'community:details_post_view'%}" class="join-btn">
+            دخول النقاش
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- POST 2 -->
+
+      <div class="post">
+
+        <div class="post-header">
+
+          <div class="user">
+
+            <div class="avatar yellow">
+              أ
+            </div>
+
+            <div class="user-info">
+              <h4>أحمد</h4>
+              <span>أب • منذ 5 ساعات</span>
+            </div>
+
+          </div>
+
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+                   
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post-text">
+          جرّبت اليوم أسوي بانكيك للأطفال بأشكال كرتونية،
+          وأخيرًا ولدي أكل كامل فطوره 😂
+        </div>
+
+        <div class="tags">
+
+          <a href="#" class="tag">#التغذية</a>
+          <a  href="#" class="tag">#أفكار_للأطفال</a>
+          <a  href="#" class="tag">#وصفات</a>
+
+        </div>
+
+        <div class="post-footer">
+
+          <div class="stats">
+            <span>♡ 42 إعجاب</span>
+            <span>💬 31 تعليق</span>
+          </div>
+
+          <button class="join-btn">
+            دخول النقاش
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- POST 3 -->
+
+      <div class="post">
+
+        <div class="post-header">
+
+          <div class="user">
+
+            <div class="avatar purple">
+              د
+            </div>
+
+            <div class="user-info">
+              <h4>د. نوره</h4>
+              <span>مختصة • منذ 8 ساعات</span>
+            </div>
+
+          </div>
+
+          <div class="menu-wrapper">
+
+                <button class="menu-btn">
+                    ⋯
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post-text">
+          تذكير بسيط لكل الأهالي:
+          لا تضغطون على أنفسكم كثير،
+          وجودكم مع أطفالكم أهم من أي شيء ❤️
+        </div>
+
+        <div class="tags">
+
+          <a href="#" class="tag">#نصائح</a>
+          <a href="#" class="tag">#دعم_نفسي</a>
+          <a  href="#" class="tag">#الأهل</a>
+
+        </div>
+
+        <div class="post-footer">
+
+          <div class="stats">
+            <span>♡ 89 إعجاب</span>
+            <span>💬 56 تعليق</span>
+          </div>
+
+          <button class="join-btn">
+            دخول النقاش
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+  </div>
+
+{% endblock %}
