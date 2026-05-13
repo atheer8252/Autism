@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ehtiwa</title>
+
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Ehtiwa
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/about-us/">About</a>
+            </li>
+
+            <li>
+                <a href="/how-it-works/">How It Works</a>
+            </li>
+
+            <li>
+                <a href="/contact-us/">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+
+        <h3>Ehtiwa</h3>
+
+        <p>
+            AI-powered autism support platform for parents and children.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
