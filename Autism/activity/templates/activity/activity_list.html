@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'activity/css/style.css' %}"> {% endblock %}
+
+
+{% block content %}
+<div class="gallery-container">
+    
+    <header class="gallery-header">
+        <h1>رحلة استكشاف الأنشطة</h1>
+        <p>اختر النشاط المناسب لمزاج وقدرات طفلك الصغير اليوم</p>
+    </header>
+
+    <div class="activities-grid">
+        
+        <div class="activity-card" style="animation-delay: 0.1s;">
+            <div class="card-image">
+                <span class="category-badge">نشاط حسي</span>
+                <img src="{% static 'images/plays.jpg' %}" alt="Activity">
+            </div>
+            <div class="card-body">
+                <h3>اللعب بالمعجون الحسي</h3>
+                <p>تطوير المهارات الحركية الدقيقة واستكشاف الملامس المختلفة بطريقة ممتعة.</p>
+                <div class="card-footer">
+                    <div class="difficulty">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <small style="margin-right: 5px;">سهل</small>
+                    </div>
+                    <a href="{% url 'activity:activity_detail' %}" class="btn-start">ابدأ الآن</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- كارد 2 -->
+        <div class="activity-card" style="animation-delay: 0.2s;">
+            <div class="card-image">
+                <span class="category-badge">نشاط حركي</span>
+                <img src="{% static 'images/jumps.jpg' %}" alt="Activity">
+            </div>
+            <div class="card-body">
+                <h3>قفز الحواجز الملونة</h3>
+                <p>تعزيز التوازن والوعي الفراغي من خلال القفز فوق شرائط ملونة آمنة.</p>
+                <div class="card-footer">
+                    <div class="difficulty">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <small style="margin-right: 5px;">متوسط</small>
+                    </div>
+                    <a href="#" class="btn-start">ابدأ الآن</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- كارد 3 -->
+        <div class="activity-card" style="animation-delay: 0.3s;">
+            <div class="card-image">
+                <span class="category-badge">نشاط لغوي</span>
+                <img src="{% static 'images/water.jpg' %}" alt="Activity">
+            </div>
+            <div class="card-body">
+                <h3>صيد الحروف المغناطيسية</h3>
+                <p>تعلم الحروف الهجائية بطريقة تفاعلية باستخدام المغناطيس والماء.</p>
+                <div class="card-footer">
+                    <div class="difficulty">
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <span class="dot active"></span>
+                        <small style="margin-right: 5px;">متقدم</small>
+                    </div>
+                    <a href="#" class="btn-start">ابدأ الآن</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

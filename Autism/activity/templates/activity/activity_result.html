@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} نتيجة الأنشطة {% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'activity/css/style.css' %}"> {% endblock %}
+
+
+{% block content %}
+<div class="result-wrapper">
+    
+    <div class="result-card">
+        <!-- قصاصات ورق احتفالية -->
+        <div class="confetti c1"></div>
+        <div class="confetti c2"></div>
+        <div class="confetti c3"></div>
+        <div class="confetti c4"></div>
+        <div class="confetti c5"></div>
+
+        <div class="celebration-icon">🥳</div>
+        
+        <h1>عمل رائع!</h1>
+        <p>لقد أتممت أنت وطفلك الصغير نشاط <strong>"اللعب بالمعجون الحسي"</strong> بنجاح باهر.</p>
+
+        <div class="achievement-box">
+            <div class="stat-item">
+                <span>الوقت المستغرق</span>
+                <strong>15 دقيقة</strong>
+            </div>
+            <div class="stat-item">
+                <span>المهارات المكتسبة</span>
+                <strong>حركية - حسية</strong>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{% url 'activity:activity_list' %}" class="btn-finish">العودة لمعرض الأنشطة</a>
+            <button class="btn-share" onclick="window.print()">تحميل ملخص النشاط (PDF)</button>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a href="{% url 'main:home_page_view' %}" style="color: #999; text-decoration: none; font-size: 0.9rem;">العودة للرئيسية</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
