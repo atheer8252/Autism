@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'main',
+    'accounts',
+    'community',
+    'assessment',
 ]
 
 MIDDLEWARE = [

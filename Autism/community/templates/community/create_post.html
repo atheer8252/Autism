@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+إنشاء نقاش
+{% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'community/css/style.css' %}"> {% endblock %}
+
+
+{% block content %}
+
+<div class="create-page">
+
+    <h1 class="page-title">
+        إنشاء نقاش جديد
+    </h1>
+
+    <p class="page-subtitle">
+        شارك تجربتك أو اطرح سؤالًا على المجتمع
+    </p>
+
+    <div class="create-card">
+
+        <form>
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    عنوان النقاش
+                </label>
+
+                <input
+                    type="text"
+                    class="form-input"
+                    placeholder="اكتب عنوانًا واضحًا..."
+                >
+
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    التصنيف
+                </label>
+
+                <select class="form-select">
+
+                    <option>
+                        اختر التصنيف
+                    </option>
+
+                    <option>
+                        النوم
+                    </option>
+
+                    <option>
+                        التغذية
+                    </option>
+
+                    <option>
+                        اللعب
+                    </option>
+
+                    <option>
+                        التعليم
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    محتوى النقاش
+                </label>
+
+                <textarea
+                    class="form-textarea"
+                    placeholder="اكتب تفاصيل النقاش هنا..."
+                ></textarea>
+
+            </div>
+
+            <!-- TAGS -->
+
+           <!-- TAGS -->
+
+<div class="form-group">
+
+    <label class="form-label">
+        الوسوم
+    </label>
+
+    <input
+        type="text"
+        class="form-input"
+        placeholder="مثال: #النطق #التوحد #التواصل"
+    >
+
+    <small class="tags-note">
+        اكتب الوسوم باستخدام #
+    </small>
+
+</div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="actions">
+
+                <a type="button" class="cancel-btn" href="javascript:history.back()">
+                    إلغاء
+                </a>
+
+                <button
+                    type="submit"
+                    class="publish-btn"
+                >
+                    نشر النقاش
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

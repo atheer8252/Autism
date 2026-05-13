@@ -1,0 +1,175 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+تفاصيل النقاش
+{% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'community/css/style.css' %}"> {% endblock %}
+
+
+
+{% block content %}
+
+<div class="discussion-page">
+
+    <a href="javascript:history.back()" class="back-link">
+        ← العودة للمجتمع
+    </a>
+
+    <!-- POST -->
+
+    <div class="discussion-card">
+
+        <div class="post-header">
+
+            <div class="user">
+
+                <div class="avatar">
+                    س
+                </div>
+
+                <div class="user-info">
+                    <h3>سارة</h3>
+                    <span>أم جديدة • منذ ساعتين</span>
+                </div>
+
+            </div>
+
+            <div class="post-menu">
+                ⋯
+            </div>
+
+        </div>
+
+        <h1 class="post-title">
+            طفلي صار يرفض النوم فجأة، هل هذا طبيعي؟
+        </h1>
+
+        <div class="post-content">
+
+            من أسبوع تقريبًا بدأ طفلي يرفض النوم
+            بالليل وحتى القيلولة صارت أصعب بكثير.
+
+            حاولت أغير وقت النوم وأخفف اللعب قبل النوم
+            لكن ما فيه فرق واضح 😭
+
+            هل أحد مر بنفس التجربة؟
+            وكيف تعاملتوا معها؟
+
+        </div>
+
+        <!-- TAGS -->
+
+        <div class="tags">
+
+            <a href="#" class="tag">
+                #النوم
+            </a>
+
+            <a href="#" class="tag">
+                #الأطفال
+            </a>
+
+            <a href="#" class="tag">
+                #تجارب_الأمهات
+            </a>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="post-footer">
+
+            <div class="post-stats">
+                <span>♡ 24 إعجاب</span>
+                <span>💬 15 تعليق</span>
+            </div>
+
+            <button class="like-btn">
+                ❤️ إعجاب
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- COMMENTS -->
+
+    <h2 class="comments-title">
+        التعليقات
+    </h2>
+
+    <!-- COMMENT -->
+
+    <div class="comment-card">
+
+        <div class="comment-header">
+
+            <div class="comment-avatar">
+                أ
+            </div>
+
+            <div class="comment-user">
+                <h4>أحمد</h4>
+                <span>منذ ساعة</span>
+            </div>
+
+        </div>
+
+        <div class="comment-text">
+
+            طبيعي جدًا يمر الأطفال بفترات يتغير فيها
+            نمط النوم، خصوصًا مع النمو أو التسنين.
+
+        </div>
+
+    </div>
+
+    <!-- COMMENT -->
+
+    <div class="comment-card">
+
+        <div class="comment-header">
+
+            <div class="comment-avatar">
+                ر
+            </div>
+
+            <div class="comment-user">
+                <h4>ريم</h4>
+                <span>منذ 35 دقيقة</span>
+            </div>
+
+        </div>
+
+        <div class="comment-text">
+
+            جربي تخففين الإضاءة قبل النوم بساعة،
+            هذا الشيء ساعد طفلي كثير.
+
+        </div>
+
+    </div>
+
+    <!-- ADD COMMENT -->
+
+    <div class="add-comment">
+
+        <textarea
+            class="comment-input"
+            placeholder="اكتب تعليقك هنا..."
+        ></textarea>
+
+        <div class="comment-actions">
+
+            <button class="publish-comment">
+                نشر التعليق
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
