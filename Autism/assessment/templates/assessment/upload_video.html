@@ -1,0 +1,129 @@
+{% extends "main/base.html" %}
+
+{% load static%}
+
+{% block title %} بناء الخطة - الخطوة 1 {% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'assessment/css/style.css' %}"> {% endblock %}
+
+{% block content %}
+<div class="inner-header">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <div>
+            <div style="font-weight: bold; color: var(--primary-green); font-size: 16px;">بناء الخطة</div>
+            <div style="font-size: 12px; color: var(--text-gray);">الخطوة 1 من 3</div>
+        </div>
+    </div>
+    <button onclick="history.back()" style="background: none;border: 1px solid #ddd;padding: 8px 15px;border-radius: 8px;cursor: pointer;display: flex;align-items: center;gap: 8px;color: #666;font-size: 14px;">
+    رجوع
+    <i class="bi bi-arrow-left"></i> 
+</button>
+</div>
+
+<div class="main-content-area">
+    <div class="header-title">
+        <h2>قبل بناء الخطة، نحتاج إلى بيانات من الطفل</h2>
+        <p>قم بتحميل مقطع فيديو للطفل ومن ثم قم بالإجابة على الإستبيان المرفق</p>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card-option">
+            <div class="card-icon-header">
+                <h4 style="margin:0">1. رفع فيديو للطفل</h4>
+            </div>
+            <p style="font-size:13px; color:var(--text-gray);">قم برفع مقطع فيديو قصير للطفل أثناء قيامه بأنشطة يومية لمدة 3-5 دقائق.</p>
+            
+            <div class="upload-box-v2">
+                <div style="font-size:40px; margin-bottom:10px;">☁️</div>
+                <div style="font-weight:bold; font-size:15px;">اضغط لرفع الفيديو</div>
+                <div style="font-size:12px; color:#aaa; margin-top:5px;">أو اسحب الملف هنا</div>
+            </div>
+
+            <div class="privacy-footer">
+                <b>خصوصية وأمان:</b> يتم تشفير جميع الفيديوهات المرفوعة ولا يتم مشاركتها مع أي جهة خارجية.
+            </div>
+
+            <button href="#" class="action-btn">متابعة </button>
+        </div>
+
+        <div class="card-option">
+            <div class="card-icon-header">
+                <h4 style="margin:0">2. الإجابة على الاستبيان</h4>
+            </div>
+            <p style="font-size:13px; color:var(--text-gray);">أجب على مجموعة من الأسئلة لتقييم سلوك الطفل وبناء الخطة المناسبة له.</p>
+
+            <div class="quiz-preview">
+                <div style="color:var(--primary-green); font-size:12px; font-weight:bold; display:flex; justify-content:space-between;">
+                    <span>السؤال 3 من 4</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-bar-v2">
+                    <div class="progress-fill-v2"></div>
+                </div>
+                
+                <h5 style="margin:0 0 15px; font-size:15px;">كيف يتواصل طفلك مع الآخرين؟</h5>
+                
+                <div class="choice-item">
+                    <span>يتواصل بسهولة</span>
+                    <div class="check-dot"></div>
+                </div>
+                <div class="choice-item selected">
+                    <span>يتواصل أحياناً</span>
+                    <div class="check-dot"></div>
+                </div>
+                <div class="choice-item">
+                    <span>يتواصل بصعوبة</span>
+                    <div class="check-dot"></div>
+                </div>
+            </div>
+
+            <button href="#" class="action-btn">ابدأ الاستبيان </button>
+        </div>
+    </div>
+
+<div class="edu-section-wrapper">
+    <div class="edu-videos-grid">
+        <div class="edu-view-all">
+            <div class="circle-btn">
+                <i class="bi bi-play"></i>
+            </div>
+            <span>عرض جميع<br>الفيديوهات</span>
+        </div>
+
+        <div class="edu-card">
+            <div class="edu-image">
+                <img src="{% static 'images/play.jpg' %}">
+                <span class="edu-tag">03:45</span>
+                <div class="play-icon-mid"><i class="bi bi-play-fill"></i></div>
+            </div>
+            <div class="edu-text">
+                <h6>تنمية المهارات الاجتماعية</h6>
+                <p>مشاهدة</p>
+            </div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-image">
+                <img src="{% static 'images/contact.jpg' %}">
+                <span class="edu-tag">05:15</span>
+                <div class="play-icon-mid"><i class="bi bi-play-fill"></i></div>
+            </div>
+            <div class="edu-text">
+                <h6>تعزيز التواصل البصري</h6>
+                <p>مشاهدة</p>
+            </div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-image">
+                <img src="{% static 'images/angray.jpg' %}">
+                <span class="edu-tag">04:30</span>
+                <div class="play-icon-mid"><i class="bi bi-play-fill"></i></div>
+            </div>
+            <div class="edu-text">
+                <h6>كيف أتعامل مع نوبات الغضب</h6>
+                <p>مشاهدة</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
