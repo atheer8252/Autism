@@ -1,0 +1,171 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}تعديل ملف {{ child.name }}{% endblock %}
+ {% block style %} <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+ {% endblock %}
+
+
+{% block content %}
+<div class="child-form-page">
+
+    <a href="" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        العودة لملف {{ child.name }}
+    </a>
+
+    <div class="page-heading">
+        <h1>تعديل ملف <span>{{ child.name }}</span></h1>
+        <p>حدّث المعلومات أدناه لإبقاء رحلة طفلك دقيقة ومحدّثة.</p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                المعلومات الأساسية
+            </div>
+
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="c-name">اسم الطفل *</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="text" id="c-name" name="name" value="{{ child.name }}" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="c-age">العمر *</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="number" id="c-age" name="age" value="{{ child.age }}" min="1" max="18" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="c-gender">الجنس</label>
+                <div class="select-wrap">
+                    <select class="form-input no-icon" id="c-gender" name="gender">
+                        <option value="male" {% if child.gender == 'male' %}selected{% endif %}>ذكر</option>
+                        <option value="female" {% if child.gender == 'female' %}selected{% endif %}>أنثى</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                خصائص التواصل والحساسية
+            </div>
+
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="c-communication">نوع التواصل</label>
+                    <div class="select-wrap">
+                        <select class="form-input no-icon" id="c-communication" name="communication_type">
+                            <option value="verbal" {% if child.communication_type == 'verbal' %}selected{% endif %}>لفظي</option>
+                            <option value="nonverbal" {% if child.communication_type == 'nonverbal' %}selected{% endif %}>غير لفظي</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="c-sensory">الحساسية الحسية</label>
+                    <div class="select-wrap">
+                        <select class="form-input no-icon" id="c-sensory" name="sensory_sensitivities">
+                            <option value="sound" {% if child.sensory_sensitivities == 'sound' %}selected{% endif %}>🔊 الصوت</option>
+                            <option value="touch" {% if child.sensory_sensitivities == 'touch' %}selected{% endif %}>✋ اللمس</option>
+                            <option value="light" {% if child.sensory_sensitivities == 'light' %}selected{% endif %}>💡 الضوء</option>
+                            <option value="none" {% if child.sensory_sensitivities == 'none' %}selected{% endif %}>لا توجد</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <p class="field-hint">هذه المعلومات تساعد الذكاء الاصطناعي على تقديم اقتراحات مخصصة لطفلك.</p>
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg>
+                الأهداف والملاحظات
+            </div>
+
+            <div class="form-group">
+                <label for="c-goals">الأهداف الحالية</label>
+                <textarea class="form-input no-icon" id="c-goals" name="goals" rows="3">{{ child.goals }}</textarea>
+                <p class="field-hint">مثال: التواصل البصري، اتباع التعليمات، اللعب مع الأقران.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="c-notes">ملاحظات إضافية</label>
+                <textarea class="form-input no-icon" id="c-notes" name="notes" rows="2">{{ child.notes }}</textarea>
+            </div>
+        </div>
+
+        <div class="edit-section danger-zone">
+            <div class="edit-section-title danger-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                </svg>
+                منطقة الخطر
+            </div>
+            <p class="danger-desc">حذف هذا الملف سيزيل جميع بيانات {{ child.name }} بشكل نهائي بما فيها الجلسات والمهارات والتقارير.</p>
+            <button type="button" class="btn-danger" onclick="confirmDelete()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                </svg>
+                حذف ملف {{ child.name }}
+            </button>
+        </div>
+
+        <div class="save-bar">
+            <p id="saveMsg">جميع التغييرات محفوظة بأمان.</p>
+            <div class="save-actions">
+                <a href="" class="btn-outline">إلغاء</a>
+                <button type="submit" class="btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m20 6-11 11-5-5" />
+                    </svg>
+                    حفظ التغييرات
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    function confirmDelete() {
+        if (confirm('هل أنت متأكد من حذف ملف {{ child.name }}؟ لا يمكن التراجع عن هذا الإجراء.')) {
+            window.location.href = '';
+        }
+    }
+</script>
+{% endblock %}

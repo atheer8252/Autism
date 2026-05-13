@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block title %}Ehtiwa — الملف الشخصي{% endblock %}
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
-{% endblock %}
+ {% block style %} <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+ {% endblock %}
+
 
 {% block content %}
 
@@ -91,13 +91,7 @@
                 <div class="info-value success">✓ نشط</div>
             </div>
 
-            <div class="info-card full">
-                <div class="info-label">نبذة</div>
-                <div class="info-value muted">
-                    والد فارس، عمره 5 سنوات. نعمل مع أخصائي سلوكي مرتين أسبوعيًا.
-                    نركز على تطوير التواصل الاجتماعي والمهارات اليومية وتقليل نوبات التحسس الحسي.
-                </div>
-            </div>
+
 
         </div>
 
