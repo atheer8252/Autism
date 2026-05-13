@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('accounts.urls')),
     path('community/', include('community.urls')),
-    path('assessment/', include ('assessment.urls')), 
     path('children/', include('children.urls')),
-
+    path('assessment/', include ('assessment.urls')),
+    path('activity/', include('activity.urls')), 
 ]

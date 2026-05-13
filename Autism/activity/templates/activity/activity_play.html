@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'activity/css/style.css' %}"> {% endblock %}
+
+
+{% block content %}
+<div class="play-container">
+    
+    <!-- شريط علوي للخروج -->
+    <nav class="play-nav">
+        <a href="{% url 'activity:activity_list' %}" class="btn-exit">✕ إنهاء النشاط</a>
+        <div class="timer" style="color: var(--text-muted); font-weight: bold;">
+            ⏱️ <span id="time">10:00</span>
+        </div>
+    </nav>
+
+    <div class="play-card">
+        <!-- منطقة عرض المحتوى -->
+        <div class="media-viewport">
+            <!-- الصورة تظهر كاملة بفضل CSS contain -->
+            <img src="{% static 'images/plays.jpg' %}" alt="تطبيق النشاط">
+        </div>
+
+        <!-- شريط تقدم داخلي -->
+        <div class="mini-progress">
+            <div class="progress-fill"></div>
+        </div>
+
+        <div class="activity-details">
+            <span class="step-indicator">المرحلة 2: مرحلة التنفيذ</span>
+            <h2>لنبدأ اللعب بالمعجون!</h2>
+            
+            <ul class="instructions-list">
+                <li>ابدأ بوضع المعجون أمام طفلك واتركه يلمسه بحرية.</li>
+                <li>شجعه على ضغط المعجون بأصابعه الصغيرة لتقوية العضلات.</li>
+                <li>حاول صنع أشكال بسيطة مثل (كرة أو حبل) واطلب منه تقليدك.</li>
+                <li>تحدث معه عن ملمس المعجون (ناعم، بارد، طري).</li>
+            </ul>
+        </div>
+
+        <!-- أزرار التحكم -->
+        <div class="play-actions">
+            <a href="{% url 'activity:activity_list' %}" class="btn-nav btn-prev">السابق</a>
+            <!-- هذا الزر يوجه المستخدم لصفحة النتيجة النهائية التي صممناها سابقاً -->
+            <a href="{% url 'activity:activity_result' %}" class="btn-nav btn-next">إنهاء وتسجيل النتيجة</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'community',
     'assessment',
     'children',
+    'activity',
 ]
 
 MIDDLEWARE = [
