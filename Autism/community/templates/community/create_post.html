@@ -1,0 +1,302 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+إنشاء نقاش
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+.create-page{
+    max-width: 900px;
+    margin: auto;
+}
+
+.page-title{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2B2B2B;
+}
+
+.page-subtitle{
+    color: #8b8b8b;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+.create-card{
+    background: white;
+    border-radius: 28px;
+    padding: 35px;
+    border: 1px solid #ececec;
+}
+
+.form-group{
+    margin-bottom: 28px;
+}
+
+.form-label{
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input,
+.form-select,
+.form-textarea{
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    padding: 16px 18px;
+    font-size: 15px;
+    font-family: 'Tajawal', sans-serif;
+    background: #fafafa;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+    border-color: #8A9B72;
+    background: white;
+}
+
+.form-textarea{
+    min-height: 180px;
+    resize: vertical;
+}
+
+.tags-box{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag{
+    background: #f3f3f3;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tag:hover{
+    background: #dfe8d3;
+    color: #5C6B48;
+}
+
+.upload-box{
+    border: 2px dashed #d7d7d7;
+    border-radius: 24px;
+    padding: 45px 20px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.upload-icon{
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.upload-text{
+    color: #777;
+    font-size: 15px;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    gap: 20px;
+}
+
+.cancel-btn{
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    padding: 14px 28px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.publish-btn{
+    border: none;
+    background: #8A9B72;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.publish-btn:hover{
+    background: #73835d;
+}
+.tags-note{
+    display:block;
+    margin-top:10px;
+    color:#8b8b8b;
+    font-size:13px;
+}
+
+@media(max-width:768px){
+
+    .create-card{
+        padding: 24px;
+    }
+
+    .actions{
+        flex-direction: column;
+    }
+
+    .cancel-btn,
+    .publish-btn{
+        width: 100%;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="create-page">
+
+    <h1 class="page-title">
+        إنشاء نقاش جديد
+    </h1>
+
+    <p class="page-subtitle">
+        شارك تجربتك أو اطرح سؤالًا على المجتمع
+    </p>
+
+    <div class="create-card">
+
+        <form>
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    عنوان النقاش
+                </label>
+
+                <input
+                    type="text"
+                    class="form-input"
+                    placeholder="اكتب عنوانًا واضحًا..."
+                >
+
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    التصنيف
+                </label>
+
+                <select class="form-select">
+
+                    <option>
+                        اختر التصنيف
+                    </option>
+
+                    <option>
+                        النوم
+                    </option>
+
+                    <option>
+                        التغذية
+                    </option>
+
+                    <option>
+                        اللعب
+                    </option>
+
+                    <option>
+                        التعليم
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    محتوى النقاش
+                </label>
+
+                <textarea
+                    class="form-textarea"
+                    placeholder="اكتب تفاصيل النقاش هنا..."
+                ></textarea>
+
+            </div>
+
+            <!-- TAGS -->
+
+           <!-- TAGS -->
+
+<div class="form-group">
+
+    <label class="form-label">
+        الوسوم
+    </label>
+
+    <input
+        type="text"
+        class="form-input"
+        placeholder="مثال: #النطق #التوحد #التواصل"
+    >
+
+    <small class="tags-note">
+        اكتب الوسوم باستخدام #
+    </small>
+
+</div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="actions">
+
+                <a type="button" class="cancel-btn" href="javascript:history.back()">
+                    إلغاء
+                </a>
+
+                <button
+                    type="submit"
+                    class="publish-btn"
+                >
+                    نشر النقاش
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
