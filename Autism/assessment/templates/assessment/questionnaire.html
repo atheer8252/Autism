@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} الإستبيان لتحليل الطفل{% endblock %}
+
+{% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="discovery-wrapper">
+    
+    <header class="header-content">
+        <span class="status-badge">Discovery Phase</span>
+        <h1> أخبرنا عن طفلك</h1>
+        <p>إجاباتك تساعدنا في إنشاء رحلة مخصصة تناسب شخصية طفلك.</p>
+    </header>
+
+    <div class="progress-section">
+        <div class="progress-fill">
+            <span class="bear-pointer">🐻</span>
+        </div>
+        <div class="end-star">⭐<br>Profile Set</div>
+    </div>
+
+    <section class="question-card">
+        <h2>هل يفضل أحمد الزوايا الهادئة اليوم؟</h2>
+        <div class="answer-options">
+            <button class="answer-btn">نعم</button>
+            <button class="answer-btn">لا</button>
+            <button class="answer-btn">أحياناً</button>
+        </div>
+        <p style="margin-top: 25px; color: #aaa; font-size: 0.85rem;">🌱 اختر الخيار الذي يبدو أكثر طبيعية اليوم.</p>
+    </section>
+
+    <div class="nav-actions">
+        <a href="#" style="color: var(--light-text); text-decoration: none;">&lt; السابق</a>
+        <span style="color: #bbb;">الخطوة 2 من 5</span>
+        <button class="btn-next">السؤال التالي &gt;</button>
+    </div>
+
+    <footer class="bottom-grid">
+        <div class="info-card">
+            <span>🔍</span>
+            <div>
+                <strong>كيف نستخدم هذا؟</strong>
+                <p>تعرف على منطق التقييم لدينا.</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <span>💾</span>
+            <div>
+                <strong>حفظ وخروج</strong>
+                <p>أكمل من حيث توقفت لاحقاً.</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <span>💬</span>
+            <div>
+                <strong>تحتاج مساعدة؟</strong>
+                <p>تحدث مع فريق الدعم لدينا.</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+{% endblock %}

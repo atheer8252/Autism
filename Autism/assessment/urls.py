@@ -5,4 +5,5 @@ app_name="assessment"
 
 urlpatterns=[
     path('upload/', views.upload_video, name="upload_video"),
+    path('questionnaire/', views.questionnaire, name="questionnaire"),
 ]

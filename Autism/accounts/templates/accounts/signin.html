@@ -69,10 +69,9 @@
         <div class="auth-tabs">
           <button class="auth-tab active">تسجيل الدخول</button>
 
-          <button class="auth-tab"
-            onclick="window.location.href='/accounts/signup/'">
+          <a class="auth-tab" href="{% url 'accounts:signup' %}"> 
             إنشاء حساب
-          </button>
+        </a>
         </div>
 
         <!-- Heading -->
