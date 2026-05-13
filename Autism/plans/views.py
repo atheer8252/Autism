@@ -3,7 +3,11 @@ from django.http import HttpRequest, HttpResponse
 
 # Create your views here.
 
-def support_plan_view (request:HttpRequest):
+def main_plan_view (request:HttpRequest):
+
+    return render(request, 'plans/main_plan.html')
+
+def support_plan_view(request:HttpRequest):
 
     return render(request, 'plans/support_plan.html')
 
