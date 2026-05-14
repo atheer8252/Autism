@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'accounts',
     'community',
     'assessment',
+    'plans',
+    'educational_videos',
     'activity',
 ]
 

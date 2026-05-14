@@ -1,15 +1,136 @@
 {% extends 'main/base.html' %}
 
+{% block title %}احتواء | كيف يعمل{% endblock %}
+
 {% block content %}
 
-<section class="simple-page">
+<main class="how-page">
 
-    <h1>How It Works</h1>
+    <section class="how-hero" aria-label="كيف يعمل احتواء">
+        <div class="how-hero-copy">
+            <span class="how-pill">
+                <i class="bi bi-compass"></i>
+                رحلة واضحة خطوة بخطوة
+            </span>
 
-    <p>
-        Upload videos, answer questions, and receive AI-powered support plans.
-    </p>
+            <h1>كيف يساعدك احتواء في فهم رحلة طفلك؟</h1>
 
-</section>
+            <p>
+                صممنا احتواء ليكون بسيطًا وهادئًا: تجمع الملاحظات، تجيب عن أسئلة قصيرة، ثم تحصل على خطة دعم وأنشطة مناسبة لاحتياج طفلك الحالي.
+            </p>
+
+            <div class="how-actions">
+                <a href="{% url 'assessment:upload_video' %}" class="how-btn how-btn-primary">
+                    ابدأ برفع فيديو
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a href="{% url 'assessment:questionnaire' %}" class="how-btn how-btn-secondary">
+                    ابدأ الاستبيان
+                </a>
+            </div>
+        </div>
+
+        <div class="how-hero-panel">
+            <div class="how-panel-icon"><i class="bi bi-stars"></i></div>
+            <h2>من ملاحظة صغيرة إلى خطة واضحة</h2>
+            <p>نحوّل التفاصيل اليومية إلى خطوات عملية تساعدك على المتابعة بثقة وهدوء.</p>
+        </div>
+    </section>
+
+    <section class="how-steps" aria-label="خطوات استخدام احتواء">
+        <div class="how-section-heading">
+            <h2>رحلتك داخل احتواء</h2>
+            <p>أربع خطوات بسيطة تساعدك على تنظيم الصورة وفهم ما يحتاجه الطفل في المرحلة الحالية.</p>
+        </div>
+
+        <div class="how-steps-grid">
+            <article class="how-step-card">
+                <span class="step-number">01</span>
+                <div class="step-icon"><i class="bi bi-camera-video"></i></div>
+                <h3>ارفع فيديو قصير</h3>
+                <p>شارك لحظة من سلوك الطفل أو نشاطه اليومي ليتم تحليلها ضمن سياق داعم وغير تشخيصي.</p>
+            </article>
+
+            <article class="how-step-card">
+                <span class="step-number">02</span>
+                <div class="step-icon"><i class="bi bi-ui-checks"></i></div>
+                <h3>أجب عن الاستبيان</h3>
+                <p>أسئلة مختصرة تساعد المنصة على فهم الروتين، المهارات، والتحديات التي تلاحظها.</p>
+            </article>
+
+            <article class="how-step-card">
+                <span class="step-number">03</span>
+                <div class="step-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+                <h3>استلم ملخصًا واضحًا</h3>
+                <p>تحصل على ملخص بلغة بسيطة يبرز الملاحظات ونقاط القوة والمجالات التي تحتاج متابعة.</p>
+            </article>
+
+            <article class="how-step-card">
+                <span class="step-number">04</span>
+                <div class="step-icon"><i class="bi bi-calendar-heart"></i></div>
+                <h3>ابدأ خطة الدعم</h3>
+                <p>نقترح أنشطة مناسبة يمكنك تطبيقها في المنزل ومتابعة أثرها مع الوقت.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="how-support" aria-label="ما الذي تحصل عليه">
+        <div class="how-support-copy">
+            <span class="how-small-label">ما الذي ستحصل عليه؟</span>
+            <h2>دعم عملي بدون تعقيد</h2>
+            <p>
+                احتواء لا يربكك بالمصطلحات. نركز على ملاحظات مفهومة، خطوات قابلة للتطبيق، ومساحة تشعر فيها أن رحلتك مع طفلك منظمة أكثر.
+            </p>
+        </div>
+
+        <div class="how-benefits">
+            <article>
+                <i class="bi bi-chat-square-heart"></i>
+                <h3>لغة مطمئنة</h3>
+                <p>شرح بسيط يحترم قلق الوالدين ويبتعد عن الأحكام القاسية.</p>
+            </article>
+
+            <article>
+                <i class="bi bi-graph-up-arrow"></i>
+                <h3>متابعة النمو</h3>
+                <p>تنظيم الملاحظات والأنشطة حتى ترى التقدم بشكل أوضح.</p>
+            </article>
+
+            <article>
+                <i class="bi bi-people"></i>
+                <h3>مجتمع داعم</h3>
+                <p>مساحة للعائلات لتبادل الخبرات بطريقة آمنة ومحترمة.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="how-trust" aria-label="الخصوصية والثقة">
+        <article>
+            <div class="trust-icon"><i class="bi bi-shield-lock"></i></div>
+            <h2>خصوصية الطفل أولًا</h2>
+            <p>
+                نتعامل مع مقاطع الفيديو والبيانات الشخصية بحساسية عالية، ولا نعرضها للعامة. هدفنا أن تكون التجربة آمنة ومريحة للعائلة.
+            </p>
+        </article>
+
+        <article>
+            <div class="trust-icon"><i class="bi bi-heart-pulse"></i></div>
+            <h2>إرشاد وليس تشخيصًا</h2>
+            <p>
+                نتائج احتواء تساعدك على التنظيم والفهم والمتابعة، لكنها لا تغني عن تقييم المختصين أو الرعاية الطبية عند الحاجة.
+            </p>
+        </article>
+    </section>
+
+    <section class="how-cta">
+        <h2>جاهز لتبدأ رحلة أوضح؟</h2>
+        <p>ابدأ بخطوة صغيرة اليوم: فيديو قصير أو استبيان سريع، وسنساعدك على ترتيب الخطوات التالية.</p>
+        <div class="how-cta-actions">
+            <a href="{% url 'assessment:upload_video' %}" class="how-btn how-btn-light">ابدأ الآن</a>
+            <a href="{% url 'main:contact_us' %}" class="how-link">لدي سؤال أولًا</a>
+        </div>
+    </section>
+
+</main>
 
 {% endblock %}

@@ -29,6 +29,6 @@ The platform provides a safe and user-friendly environment where parents can mon
 
 ## Documentation
 
-- User Stories: [View PDF](./Files/UserStory.pdf)
+- User Stories: [View PDF](./Files/User_Stories.pdf)
 - UML Diagram: [View PDF](./Files/UML.pdf)
 - Wireframe: [View PDF](./Files/wireframe.pdf)

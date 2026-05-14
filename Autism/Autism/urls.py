@@ -22,6 +22,8 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('accounts.urls')),
     path('community/', include('community.urls')),
+    path('', include('plans.urls')), 
+    path('', include('educational_videos.urls')),
     path('assessment/', include ('assessment.urls')),
     path('activity/', include('activity.urls')), 
 ]

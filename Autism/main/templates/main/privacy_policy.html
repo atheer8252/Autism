@@ -1,15 +1,139 @@
 {% extends 'main/base.html' %}
 
+{% block title %}احتواء | سياسة الخصوصية{% endblock %}
+
 {% block content %}
 
-<section class="simple-page">
+<main class="legal-page">
 
-    <h1>Privacy Policy</h1>
+    <section class="legal-hero" aria-label="سياسة الخصوصية">
+        <div class="legal-hero-copy">
+            <span class="legal-pill">
+                <i class="bi bi-file-earmark-lock"></i>
+                حماية بيانات العائلة
+            </span>
 
-    <p>
-        Your data is securely protected and never shared publicly.
-    </p>
+            <h1>سياسة الخصوصية في احتواء</h1>
 
-</section>
+            <p>
+                نعرف أن بيانات الطفل والعائلة حساسة ومهمة. لذلك توضّح هذه السياسة ما نجمعه، ولماذا نستخدمه، وكيف نحافظ عليه داخل منصة احتواء.
+            </p>
+        </div>
+
+        <aside class="legal-summary" aria-label="ملخص سياسة الخصوصية">
+            <div>
+                <span>آخر تحديث</span>
+                <strong>14 مايو 2026</strong>
+            </div>
+            <div>
+                <span>ما تغطيه السياسة</span>
+                <strong>الحساب، الفيديوهات، الاستبيانات، المجتمع، ورسائل التواصل</strong>
+            </div>
+        </aside>
+    </section>
+
+    <section class="legal-content">
+        <aside class="legal-toc" aria-label="محتويات الصفحة">
+            <h2>المحتويات</h2>
+            <a href="#data">البيانات التي نجمعها</a>
+            <a href="#use">كيف نستخدم البيانات</a>
+            <a href="#videos">الفيديوهات والمرفقات</a>
+            <a href="#sharing">مشاركة البيانات</a>
+            <a href="#security">حماية البيانات</a>
+            <a href="#rights">حقوقك</a>
+            <a href="#children">خصوصية الأطفال</a>
+        </aside>
+
+        <div class="legal-sections">
+            <article class="legal-card" id="data">
+                <div class="legal-icon"><i class="bi bi-database-lock"></i></div>
+                <div>
+                    <h2>البيانات التي نجمعها</h2>
+                    <p>
+                        قد نجمع معلومات الحساب مثل الاسم والبريد الإلكتروني، ومعلومات اختيارية عن الطفل، وإجابات الاستبيانات، والملاحظات التي تضيفها أثناء استخدامك للمنصة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="use">
+                <div class="legal-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+                <div>
+                    <h2>كيف نستخدم البيانات</h2>
+                    <p>
+                        نستخدم البيانات لتقديم تجربة أكثر ملاءمة، مثل بناء ملخصات دعم، اقتراح أنشطة مناسبة، تحسين جودة الخدمة، والرد على طلباتك عند التواصل معنا.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="videos">
+                <div class="legal-icon"><i class="bi bi-camera-video"></i></div>
+                <div>
+                    <h2>الفيديوهات والمرفقات</h2>
+                    <p>
+                        تُستخدم الفيديوهات التي ترفعها فقط ضمن سياق تقديم الخدمة وتحليل الملاحظات السلوكية بشكل داعم. لا يتم عرض هذه الملفات للعامة أو مشاركتها داخل المجتمع.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="sharing">
+                <div class="legal-icon"><i class="bi bi-share"></i></div>
+                <div>
+                    <h2>مشاركة البيانات</h2>
+                    <p>
+                        لا نبيع بياناتك الشخصية. قد نشارك معلومات محدودة فقط عند الحاجة لتشغيل الخدمة، أو الامتثال لمتطلبات قانونية، أو حماية سلامة المستخدمين والمنصة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="security">
+                <div class="legal-icon"><i class="bi bi-shield-check"></i></div>
+                <div>
+                    <h2>حماية البيانات</h2>
+                    <p>
+                        نستخدم إجراءات تنظيمية وتقنية مناسبة لتقليل مخاطر الوصول غير المصرح به أو الفقدان أو سوء الاستخدام. ومع ذلك، لا توجد خدمة رقمية خالية تمامًا من المخاطر.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="rights">
+                <div class="legal-icon"><i class="bi bi-person-check"></i></div>
+                <div>
+                    <h2>حقوقك على بياناتك</h2>
+                    <p>
+                        يمكنك طلب تعديل بياناتك أو حذفها أو الاستفسار عن طريقة استخدامها عبر التواصل معنا. سنحاول معالجة طلبك بوضوح وفي أقرب وقت ممكن.
+                    </p>
+                    <a href="{% url 'main:contact_us' %}" class="legal-inline-link">تواصل معنا بخصوص بياناتك</a>
+                </div>
+            </article>
+
+            <article class="legal-card" id="children">
+                <div class="legal-icon"><i class="bi bi-heart"></i></div>
+                <div>
+                    <h2>خصوصية الأطفال</h2>
+                    <p>
+                        صُممت احتواء لدعم الوالدين ومقدمي الرعاية، لذلك يجب أن تتم مشاركة أي بيانات تخص الطفل من قبل ولي الأمر أو شخص لديه الصلاحية المناسبة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="updates">
+                <div class="legal-icon"><i class="bi bi-arrow-repeat"></i></div>
+                <div>
+                    <h2>تحديثات السياسة</h2>
+                    <p>
+                        قد نحدّث سياسة الخصوصية عند تطوير مزايا جديدة أو تغيّر طريقة التعامل مع البيانات. سننشر النسخة الأحدث دائمًا في هذه الصفحة.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="legal-cta">
+        <h2>هل لديك سؤال حول الخصوصية؟</h2>
+        <p>يسعدنا توضيح طريقة تعامل احتواء مع بياناتك وبيانات طفلك، ومساعدتك في أي طلب متعلق بالخصوصية.</p>
+        <a href="{% url 'main:contact_us' %}" class="legal-btn">تواصل معنا</a>
+    </section>
+
+</main>
 
 {% endblock %}

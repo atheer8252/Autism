@@ -1,15 +1,129 @@
 {% extends 'main/base.html' %}
 
+{% block title %}احتواء | شروط الخدمة{% endblock %}
+
 {% block content %}
 
-<section class="simple-page">
+<main class="legal-page">
 
-    <h1>Terms of Service</h1>
+    <section class="legal-hero" aria-label="شروط الخدمة">
+        <div class="legal-hero-copy">
+            <span class="legal-pill">
+                <i class="bi bi-shield-check"></i>
+                شروط الاستخدام
+            </span>
 
-    <p>
-        Using our platform means agreeing to our safety and usage policies.
-    </p>
+            <h1>شروط خدمة احتواء</h1>
 
-</section>
+            <p>
+                نضع هذه الشروط لتوضيح طريقة استخدام منصة احتواء، وحماية تجربة العائلات، وضمان أن تبقى المساحة آمنة وداعمة للوالدين والأطفال.
+            </p>
+        </div>
+
+        <aside class="legal-summary" aria-label="ملخص الشروط">
+            <div>
+                <span>آخر تحديث</span>
+                <strong>14 مايو 2026</strong>
+            </div>
+            <div>
+                <span>النطاق</span>
+                <strong>الحسابات، التقييمات، المجتمع، والأنشطة</strong>
+            </div>
+        </aside>
+    </section>
+
+    <section class="legal-content">
+        <aside class="legal-toc" aria-label="محتويات الصفحة">
+            <h2>المحتويات</h2>
+            <a href="#acceptance">قبول الشروط</a>
+            <a href="#service">طبيعة الخدمة</a>
+            <a href="#accounts">الحسابات</a>
+            <a href="#content">المحتوى والملفات</a>
+            <a href="#community">المجتمع</a>
+            <a href="#privacy">الخصوصية</a>
+            <a href="#limitations">حدود المسؤولية</a>
+        </aside>
+
+        <div class="legal-sections">
+            <article class="legal-card" id="acceptance">
+                <div class="legal-icon"><i class="bi bi-check2-circle"></i></div>
+                <div>
+                    <h2>قبول الشروط</h2>
+                    <p>
+                        باستخدامك لمنصة احتواء أو إنشاء حساب أو رفع فيديو أو المشاركة في المجتمع، فإنك توافق على الالتزام بهذه الشروط وأي تحديثات مستقبلية يتم نشرها داخل المنصة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="service">
+                <div class="legal-icon"><i class="bi bi-heart-pulse"></i></div>
+                <div>
+                    <h2>طبيعة الخدمة</h2>
+                    <p>
+                        تقدم احتواء أدوات مساعدة لفهم الملاحظات السلوكية، تنظيم الأنشطة، وتقديم إرشادات عامة للوالدين. لا تعد المنصة بديلًا عن التشخيص الطبي أو الاستشارة العلاجية المتخصصة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="accounts">
+                <div class="legal-icon"><i class="bi bi-person-lock"></i></div>
+                <div>
+                    <h2>الحسابات ومسؤولية المستخدم</h2>
+                    <p>
+                        أنت مسؤول عن دقة البيانات التي تقدمها وعن الحفاظ على سرية معلومات الدخول الخاصة بك. يجب عدم مشاركة الحساب مع أشخاص غير مخولين أو استخدامه بطريقة تضر بالآخرين.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="content">
+                <div class="legal-icon"><i class="bi bi-camera-video"></i></div>
+                <div>
+                    <h2>المحتوى والملفات المرفوعة</h2>
+                    <p>
+                        عند رفع فيديو أو معلومات عن الطفل، يجب أن تكون لديك الصلاحية القانونية لمشاركة هذا المحتوى. نستخدم هذه البيانات لتقديم الخدمة وتحسين التجربة وفق سياسة الخصوصية.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="community">
+                <div class="legal-icon"><i class="bi bi-people"></i></div>
+                <div>
+                    <h2>قواعد المجتمع</h2>
+                    <p>
+                        يلتزم المستخدمون بالاحترام، وتجنب الإساءة، ونشر معلومات مضللة أو نصائح خطرة. يحق لإدارة المنصة إخفاء أو إزالة أي محتوى يخالف بيئة الدعم الآمنة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="legal-card" id="privacy">
+                <div class="legal-icon"><i class="bi bi-file-earmark-lock"></i></div>
+                <div>
+                    <h2>الخصوصية وحماية البيانات</h2>
+                    <p>
+                        نتعامل مع بيانات العائلات والأطفال بعناية عالية. توضح سياسة الخصوصية أنواع البيانات التي نجمعها وكيف نستخدمها ونحميها داخل المنصة.
+                    </p>
+                    <a href="{% url 'main:privacy_policy' %}" class="legal-inline-link">قراءة سياسة الخصوصية</a>
+                </div>
+            </article>
+
+            <article class="legal-card" id="limitations">
+                <div class="legal-icon"><i class="bi bi-info-circle"></i></div>
+                <div>
+                    <h2>حدود المسؤولية والتحديثات</h2>
+                    <p>
+                        قد تتطور مزايا المنصة أو تتغير بعض الشروط لتحسين الخدمة أو الامتثال للمتطلبات القانونية. سنحرص على نشر التحديثات المهمة بوضوح عند الحاجة.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="legal-cta">
+        <h2>هل لديك سؤال حول الشروط؟</h2>
+        <p>فريق احتواء جاهز لمساعدتك وتوضيح أي نقطة قبل استخدام المنصة أو مشاركة بيانات طفلك.</p>
+        <a href="{% url 'main:contact_us' %}" class="legal-btn">تواصل معنا</a>
+    </section>
+
+</main>
 
 {% endblock %}

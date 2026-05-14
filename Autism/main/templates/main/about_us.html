@@ -1,15 +1,132 @@
 {% extends 'main/base.html' %}
 
+{% block title %}احتواء | من نحن{% endblock %}
+
 {% block content %}
 
-<section class="simple-page">
+<main class="about-page">
 
-    <h1>About Us</h1>
+    <section class="about-hero" aria-label="من نحن">
+        <div class="about-hero-copy">
+            <span class="about-pill">
+                <i class="bi bi-heart-fill"></i>
+                منصة داعمة للعائلات
+            </span>
 
-    <p>
-        Ehtiwa is an autism support platform powered by AI technologies.
-    </p>
+            <h1>نحن نبني مساحة أكثر هدوءًا لفهم نمو الطفل</h1>
 
-</section>
+            <p>
+                احتواء منصة عربية تساعد الوالدين على متابعة ملاحظات أطفالهم، تنظيم خطوات الدعم، والوصول إلى إرشادات عملية بلغة بسيطة ودافئة.
+            </p>
+
+            <div class="about-actions">
+                <a href="{% url 'main:how_it_works' %}" class="about-btn about-btn-primary">
+                    كيف يعمل احتواء؟
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a href="{% url 'main:contact_us' %}" class="about-btn about-btn-secondary">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+
+        <div class="about-hero-card">
+            <div class="about-logo-mark">
+                <i class="bi bi-heart-fill"></i>
+            </div>
+            <h2>احتواء</h2>
+            <p>رحلة دعم تبدأ من ملاحظة صغيرة وتنمو بخطوات واضحة ومطمئنة.</p>
+        </div>
+    </section>
+
+    <section class="about-story" aria-label="قصة احتواء">
+        <div class="about-story-copy">
+            <span class="about-small-label">قصتنا</span>
+            <h2>لماذا وُجد احتواء؟</h2>
+            <p>
+                كثير من العائلات تملك ملاحظات مهمة عن نمو الطفل لكنها لا تعرف كيف ترتبها أو من أين تبدأ. لذلك صممنا احتواء ليجمع بين التنظيم، الإرشاد، والأنشطة العملية داخل تجربة واحدة سهلة.
+            </p>
+            <p>
+                هدفنا ليس أن نستبدل المختصين، بل أن نساعد الأسرة على فهم الصورة بشكل أفضل والاستعداد للنقاش مع المختصين بثقة أكبر.
+            </p>
+        </div>
+
+        <div class="about-story-points">
+            <article>
+                <i class="bi bi-camera-video"></i>
+                <h3>نحفظ الملاحظات</h3>
+                <p>من خلال الفيديوهات والاستبيانات القصيرة.</p>
+            </article>
+
+            <article>
+                <i class="bi bi-clipboard2-heart"></i>
+                <h3>نرتب الخطوات</h3>
+                <p>بملخصات وخطط دعم قابلة للتطبيق.</p>
+            </article>
+
+            <article>
+                <i class="bi bi-people"></i>
+                <h3>نقرب المجتمع</h3>
+                <p>بمساحة آمنة لتبادل الخبرات بين الوالدين.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-mission" aria-label="رسالتنا ورؤيتنا">
+        <article>
+            <div class="mission-icon"><i class="bi bi-compass"></i></div>
+            <h2>رسالتنا</h2>
+            <p>
+                تمكين الوالدين من متابعة نمو أطفالهم بطريقة منظمة ولطيفة، وتقديم إرشادات عامة تساعدهم على اتخاذ خطوات واعية.
+            </p>
+        </article>
+
+        <article>
+            <div class="mission-icon"><i class="bi bi-stars"></i></div>
+            <h2>رؤيتنا</h2>
+            <p>
+                أن تصبح احتواء مساحة عربية موثوقة تجمع بين التقنية والإنسانية لدعم العائلات في رحلة النمو والاكتشاف.
+            </p>
+        </article>
+    </section>
+
+    <section class="about-values" aria-label="قيم احتواء">
+        <div class="about-section-heading">
+            <h2>القيم التي تقودنا</h2>
+            <p>كل جزء من التجربة صُمم ليكون واضحًا، آمنًا، ومساندًا للعائلة.</p>
+        </div>
+
+        <div class="about-values-grid">
+            <article>
+                <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+                <h3>الأمان أولًا</h3>
+                <p>نحترم خصوصية الطفل والعائلة ونتعامل مع البيانات بحساسية عالية.</p>
+            </article>
+
+            <article>
+                <div class="value-icon"><i class="bi bi-chat-heart"></i></div>
+                <h3>لغة مطمئنة</h3>
+                <p>نقدم المعلومات بطريقة داعمة وسهلة الفهم، بعيدًا عن الأحكام أو التخويف.</p>
+            </article>
+
+            <article>
+                <div class="value-icon"><i class="bi bi-lightbulb"></i></div>
+                <h3>خطوات عملية</h3>
+                <p>نركز على أنشطة وملاحظات يمكن للعائلة تطبيقها ومتابعتها في الحياة اليومية.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-note" aria-label="تنبيه مهم">
+        <div>
+            <h2>احتواء يساعدك على الفهم، ولا يستبدل المختصين</h2>
+            <p>
+                نؤمن أن التقنية تكون أفضل عندما تدعم الإنسان. لذلك تقدم احتواء إرشادات ومتابعة عامة، مع تشجيع العائلة على الرجوع للمختصين عند الحاجة.
+            </p>
+        </div>
+        <a href="{% url 'assessment:questionnaire' %}" class="about-btn about-btn-light">ابدأ الاستبيان</a>
+    </section>
+
+</main>
 
 {% endblock %}

@@ -1,97 +1,115 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}احتواء | الصفحة الرئيسية{% endblock %}
+{% block nav_home %}active{% endblock %}
 
 {% block content %}
 
-<section class="hero">
+<div class="home-page">
 
-    <div class="hero-text">
-
-        <h1>
-            You're doing great, Parent.
-        </h1>
-
-        <p>
-            AI-powered support platform helping families understand and support children with autism.
-        </p>
-
-        <a href="#" class="main-btn">
-            Get Started
-        </a>
-
-    </div>
-
-    <div class="hero-image">
-
-        <img src="https://i.pinimg.com/736x/77/e4/73/77e473ccffbbf12d5a0d0c4f8b8b6d5f.jpg">
-
-    </div>
-
-</section>
-
-<section class="cards-section">
-
-    <div class="card">
-
-        <h2>Upload Video</h2>
-
-        <p>
-            Upload child behavior videos for AI analysis.
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h2>Start Survey</h2>
-
-        <p>
-            Answer smart questions to build personalized plans.
-        </p>
-
-    </div>
-
-</section>
-
-<section class="features">
-
-    <h2>
-        Why Parents Choose Ehtiwa
-    </h2>
-
-    <div class="features-grid">
-
-        <div class="feature-box">
-
-            <h3>AI Insights</h3>
-
-            <p>
-                Smart behavioral analysis using AI.
-            </p>
-
+    <section class="home-hero" aria-label="الصفحة الرئيسية">
+        <div class="home-hero-visual">
+            <div class="teddy-orb">
+                <img src="{% static 'main/images/teddy-drawing.svg' %}" alt="دب مرسوم لطيف للأطفال">
+            </div>
         </div>
 
-        <div class="feature-box">
+        <div class="home-hero-copy">
+            <div class="home-pill">
+                <i class="bi bi-stars"></i>
+                إرشاد موثوق للوالدين
+            </div>
 
-            <h3>Support Plans</h3>
-
-            <p>
-                Personalized activities and development plans.
-            </p>
-
-        </div>
-
-        <div class="feature-box">
-
-            <h3>Community</h3>
+            <h1>
+                أنت تقوم بعمل رائع،<br>
+                <span>أيها الوالد.</span>
+            </h1>
 
             <p>
-                Safe place for parents to connect.
+                دعنا نفهم طفلك الصغير معًا. توفر احتواء أدوات مدعومة بالذكاء الاصطناعي لمتابعة النمو وتوثيق اللحظات المهمة بلطف.
             </p>
 
+            <div class="home-actions">
+                <a href="{% url 'assessment:upload_video' %}" class="home-btn home-btn-primary">
+                    ابدأ الآن
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a href="{% url 'main:how_it_works' %}" class="home-btn home-btn-secondary">
+                    كيف يعمل
+                </a>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section class="home-quick-actions" aria-label="إجراءات سريعة">
+        <article class="home-action-card upload-card">
+            <div class="home-card-icon">
+                <i class="bi bi-camera"></i>
+            </div>
+            <h2>رفع فيديو</h2>
+            <p>التقط لحظة لمراجعة مختصين وفهم سلوك الطفل.</p>
+            <a href="{% url 'assessment:upload_video' %}">اذهب للرفع</a>
+        </article>
 
-</section>
+        <article class="home-action-card survey-card">
+            <div class="home-card-icon">
+                <i class="bi bi-pencil"></i>
+            </div>
+            <h2>ابدأ الاستبيان</h2>
+            <p>خصص رحلة الدعم لطفلك حسب احتياجه اليوم.</p>
+            <a href="{% url 'assessment:questionnaire' %}">ابدأ الاكتشاف</a>
+        </article>
+    </section>
+
+    <section class="home-features" aria-label="لماذا يختار الوالدان احتواء">
+        <h2>لماذا يختار الوالدان احتواء؟</h2>
+        <span class="section-mark" aria-hidden="true"></span>
+
+        <div class="home-features-grid">
+            <article class="home-feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-cloud"></i>
+                </div>
+                <h3>رؤى ذكية ولطيفة</h3>
+                <p>نستخدم الذكاء الاصطناعي بلغة بسيطة لشرح الملاحظات والبيانات بطريقة داعمة وليست تشخيصية.</p>
+            </article>
+
+            <article class="home-feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <h3>خطط شخصية</h3>
+                <p>كل طفل فريد. نقترح أنشطة أسبوعية مناسبة لاحتياجات طفلك الحالية ومراحله القادمة.</p>
+            </article>
+
+            <article class="home-feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-heart"></i>
+                </div>
+                <h3>مجتمع داعم</h3>
+                <p>لست وحدك. تواصل مع عائلات تشاركك الرحلة داخل مساحة هادئة وآمنة.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-cta" aria-label="الانضمام إلى احتواء">
+        <div class="cta-shape cta-shape-one"></div>
+        <div class="cta-shape cta-shape-two"></div>
+
+        <h2>هل أنت مستعد للانضمام إلى عائلة احتواء؟</h2>
+        <p>ابدأ رحلة الاكتشاف اليوم واحصل على خطة شخصية تناسب المرحلة القادمة لطفلك.</p>
+
+        <div class="cta-actions">
+            <a href="{% url 'assessment:questionnaire' %}" class="home-btn home-btn-light">ابدأ الرحلة الآن</a>
+            <a href="{% url 'main:about_us' %}" class="home-link">اعرف المزيد</a>
+        </div>
+    </section>
+
+    <a href="{% url 'accounts:profile' %}" class="floating-profile" aria-label="الملف الشخصي">
+        <i class="bi bi-person"></i>
+    </a>
+
+</div>
 
 {% endblock %}
