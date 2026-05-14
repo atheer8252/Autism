@@ -2,10 +2,9 @@
 {% load static %}
 
 {% block title %}Ehtiwa — Sign in{% endblock %}
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+ {% block style %} <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+ {% endblock %}
 
-{% endblock %}
 {% block content %}
 
 
@@ -147,19 +146,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="form-group">
-
-                <label for="ep-bio">نبذة / ملاحظات</label>
-
-                <textarea class="form-input no-icon" id="ep-bio" rows="3">
-والد فارس، عمره ٥ سنوات. نعمل مع أخصائي سلوكي مرتين أسبوعيًا، مع التركيز على تطوير التواصل الاجتماعي والمهارات اليومية وتقليل نوبات التحسس الحسي.
-        </textarea>
-
-                <p class="field-hint">
-                    تساعد هذه المعلومات المختصين والمجتمع على فهم رحلتكم بشكل أفضل.
-                </p>
             </div>
 
         </div>
