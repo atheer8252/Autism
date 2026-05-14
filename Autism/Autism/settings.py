@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'community',
     'assessment',
     'plans',
+    'educational_videos',
 ]
 
 MIDDLEWARE = [

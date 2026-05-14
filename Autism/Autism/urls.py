@@ -24,4 +24,5 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('', include('plans.urls')),
     path('assessment/', include ('assessment.urls')), 
+    path('', include('educational_videos.urls')),
 ]
