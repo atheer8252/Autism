@@ -95,7 +95,7 @@ body {
 
 /* ─── Divider ────────────────────────────────────────────── */
 .sidebar-hr {
-    height: 1px;
+    height: 1.5px;
     background: var(--border);
     margin: 0 18px;
     flex-shrink: 0;
@@ -123,7 +123,7 @@ body {
 .nav-group-label {
     font-size: 11px;
     font-weight: 700;
-    color: var(--text-muted);
+    color: #000000;
     letter-spacing: 0.8px;
     padding: 0 22px 6px;
     text-transform: uppercase;
@@ -165,12 +165,13 @@ body {
 .nav-label {
     flex: 1;
     text-align: right;
+    color : #3f5e35;
 }
 
 /* icon is second in DOM → left of label in RTL */
 .nav-icon {
     font-size: 17px;
-    color: var(--green-light);
+    color: #3f5e35;
     flex-shrink: 0;
 }
 
@@ -356,6 +357,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-right: -28px;
 }
 
 .footer-col-links a {
@@ -438,12 +440,13 @@ body {
     padding: 14px 48px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: center;
 }
 
 .footer-copy {
+    text-align: center;
     font-size: 12px;
     color: var(--text-muted);
 }
@@ -578,6 +581,7 @@ body {
     border-radius: 999px;
     background: #fff7eb;
     color: #2b2b2b;
+    box-shadow: 0 12px 24px rgba(137, 169, 117, 0.28);
     font-size: 12px;
     font-weight: 700;
 }
