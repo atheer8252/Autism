@@ -1,15 +1,15 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="ar"  dir="rtl">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}إحتواء{% endblock %}</title>
-    
+
     {% block style %} {% endblock %}
-    
+
 
     <!-- Bootstrap 5 RTL -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
@@ -46,9 +46,9 @@
             <!-- Scrollable nav area -->
             <nav class="nav-scroll">
 
-           
-            <div class="nav-group">
-                <div class="nav-group-label">الرئيسية</div>
+
+                <div class="nav-group">
+                    <div class="nav-group-label">الرئيسية</div>
 
                     <a href="{% url 'main:home_page_view' %}" class="nav-link-item {% block nav_home %}{% endblock %}">
                         <span class="nav-label">الصفحة الرئيسية</span>
@@ -60,7 +60,7 @@
                 <div class="nav-group">
                     <div class="nav-group-label">إدارة الأطفال</div>
 
-                    <a href="#" class="nav-link-item {% block nav_add_child %}{% endblock %}">
+                    <a href="{%url 'children:add_child'%}" class="nav-link-item {% block nav_add_child %}{% endblock %}">
                         <span class="nav-label">إضافة طفل</span>
                         <i class="bi bi-person-plus nav-icon"></i>
                     </a>
@@ -80,10 +80,10 @@
                 <div class="nav-group">
                     <div class="nav-group-label">المتابعة</div>
 
-                <a href="{% url 'assessment:upload_video' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
-                    <span class="nav-label">خطة الدعم</span>
-                    <i class="bi bi-calendar-check nav-icon"></i>
-                </a>
+                    <a href="{% url 'assessment:upload_video' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
+                        <span class="nav-label">خطة الدعم</span>
+                        <i class="bi bi-calendar-check nav-icon"></i>
+                    </a>
 
                     <a href="{% url 'activity:activity_list' %}" class="nav-link-item {% block nav_activity %}{% endblock %}">
                         <span class="nav-label">الأنشطة</span>
@@ -100,10 +100,10 @@
                 <div class="nav-group">
                     <div class="nav-group-label">المجتمع</div>
 
-                <a href="{% url 'community:community_view'%}" class="nav-link-item {% block nav_community %}{% endblock %}">
-                    <span class="nav-label">المجتمع</span>
-                    <i class="bi bi-people nav-icon"></i>
-                    <!-- {% if community_notifications %}
+                    <a href="{% url 'community:community_view'%}" class="nav-link-item {% block nav_community %}{% endblock %}">
+                        <span class="nav-label">المجتمع</span>
+                        <i class="bi bi-people nav-icon"></i>
+                        <!-- {% if community_notifications %}
                         <span class="nav-badge">{{ community_notifications }}</span>
                     {% endif %} -->
                     </a>
@@ -141,7 +141,7 @@
 
             <!-- ── Profile (pinned at bottom) ──────────────── -->
             <div class="sidebar-profile">
-                <a href="#" class="profile-card">
+                <a href="{%url 'accounts:profile'%}" class="profile-card">
                     <!-- avatar → right in RTL -->
                     <div class="profile-avatar">
                         {% block user_initial %}م{% endblock %}
@@ -185,7 +185,7 @@
                         <p class="footer-tagline">
                             نساعد أطفالك الصغار على النمو بالمحبة والحنان ودعم المجتمع.
                         </p>
-                        
+
                     </div>
 
                     <!-- col 2: استكشاف -->

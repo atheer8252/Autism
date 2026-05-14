@@ -4,11 +4,7 @@ from . import views
 app_name = "main"
 
 urlpatterns = [
-<<<<<<< HEAD
-    path('', views.home_page_view, name="home"),
-=======
     path('home/', views.home_page_view, name="home_page_view"),
->>>>>>> a1db6be34a43dcda900883160d1bd8ced21aa412
     path("about-us/", views.about_us_view, name="about_us"),
     path("contact-us/", views.contact_us_view, name="contact_us"),
     path("how-it-works/", views.how_it_works_view, name="how_it_works"),

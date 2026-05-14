@@ -50,8 +50,7 @@ def signin_view(request):
 
             if not request.POST.get('remember_me'):
                 request.session.set_expiry(0)
-            return redirect('main:home')
-        
+                return redirect('main:home_page_view')        
         else:
             messages.error(request, 'بيانات الدخول خاطئة')
 
@@ -62,8 +61,7 @@ def reset_view(request):
 
 def guest_login(request):
     request.session['is_guest'] = True
-    return redirect('/')
-
+    return redirect('main:home_page_view')
 def profile_view(request):
     return render(request, 'accounts/profile.html')
 
