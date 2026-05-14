@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}إحتواء{% endblock %}</title>
-
     {% block style %} {% endblock %}
 
 
@@ -33,7 +32,7 @@
             <!-- Logo -->
             <div class="sidebar-logo">
                 <div class="logo-circle">
-                    <i class="bi bi-heart-fill"></i>
+                    <!-- <img src="https://res.cloudinary.com/ddkq9ideu/image/upload/q_auto/f_auto/v1778744601/logo-1_yepbvy.png"> -->
                 </div>
                 <div>
                     <div class="logo-title">إحتواء</div>
@@ -80,10 +79,10 @@
                 <div class="nav-group">
                     <div class="nav-group-label">المتابعة</div>
 
-                    <a href="{% url 'assessment:upload_video' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
-                        <span class="nav-label">خطة الدعم</span>
-                        <i class="bi bi-calendar-check nav-icon"></i>
-                    </a>
+                <a href="{% url 'plans:main_plan_view' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
+                    <span class="nav-label">خطة الدعم</span>
+                    <i class="bi bi-calendar-check nav-icon"></i>
+                </a>
 
                     <a href="{% url 'activity:activity_list' %}" class="nav-link-item {% block nav_activity %}{% endblock %}">
                         <span class="nav-label">الأنشطة</span>
@@ -113,7 +112,7 @@
                 <div class="nav-group">
                     <div class="nav-group-label">الدعم</div>
 
-                    <a href="#" class="nav-link-item {% block nav_contact %}{% endblock %}">
+                    <a href="{% url 'main:contact_us' %}" class="nav-link-item {% block nav_contact %}{% endblock %}">
                         <span class="nav-label">تواصل معنا</span>
                         <i class="bi bi-chat-dots nav-icon"></i>
                     </a>
@@ -189,13 +188,12 @@
                     </div>
 
                     <!-- col 2: استكشاف -->
-                    <div>
+                    <div >
                         <div class="footer-col-title">استكشاف</div>
                         <ul class="footer-col-links">
-                            <li><a href="#">كيف يعمل</a></li>
-                            <li><a href="#">خطط الدعم</a></li>
-                            <li><a href="#">المجتمع</a></li>
-                            <li><a href="#">قصص النجاح</a></li>
+                            <li><a href="{% url 'main:how_it_works' %}">كيف يعمل</a></li>
+                            <li><a href="{% url 'plans:main_plan_view' %}">خطة الدعم</a></li>
+                            <li><a href="{% url 'community:community_view' %}">المجتمع</a></li>
                         </ul>
                     </div>
 
@@ -203,10 +201,10 @@
                     <div>
                         <div class="footer-col-title">الموارد</div>
                         <ul class="footer-col-links">
-                            <li><a href="#">نصائح التربية</a></li>
-                            <li><a href="#">آراء الخبراء</a></li>
-                            <li><a href="#">مركز المساعدة</a></li>
-                            <li><a href="#">سياسة الخصوصية</a></li>
+                            <li><a href="{% url 'main:about_us' %}">من نحن؟</a></li>
+                            <li><a href="{% url 'main:terms_of_service' %}">شروط الخدمة</a></li>
+                            <li><a href="{% url 'main:privacy_policy' %}">سياسة الخصوصية</a></li>
+
                         </ul>
                     </div>
 
@@ -226,7 +224,6 @@
                     </div>
 
                 </div>
-
                 <!-- bottom bar -->
                 <div class="footer-bottom">
                     <!-- right in RTL: copyright -->
@@ -234,10 +231,7 @@
                         &copy; {% now "Y" %} إحتواء. جميع الحقوق محفوظة. صُنع بمحبة للآباء والأمهات.
                     </span>
                     <!-- left in RTL: legal links -->
-                    <ul class="footer-legal">
-                        <li><a href="#">شروط الخدمة</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                    </ul>
+                    
                 </div>
 
             </footer>
