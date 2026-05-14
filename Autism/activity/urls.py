@@ -8,4 +8,5 @@ urlpatterns=[
     path('activity_detail/', views.activity_detail, name="activity_detail"),
     path('activity_result/', views.activity_result, name="activity_result"),
     path('activity_play/', views.activity_play, name="activity_play"),
+    path('activity_eye/', views.activity_eye, name="activity_eye"),
 ]

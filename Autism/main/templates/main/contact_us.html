@@ -1,25 +1,129 @@
 {% extends 'main/base.html' %}
 
+{% block title %}احتواء | تواصل معنا{% endblock %}
+{% block nav_contact %}active{% endblock %}
+
 {% block content %}
 
-<section class="simple-page">
+<main class="contact-page">
 
-    <h1>Contact Us</h1>
+    <section class="contact-hero" aria-label="تواصل معنا">
+        <div class="contact-hero-copy">
+            <span class="contact-pill">
+                <i class="bi bi-chat-heart"></i>
+                نحن هنا لمساعدتك
+            </span>
 
-    <form class="contact-form">
+            <h1>تواصل معنا بكل سهولة</h1>
 
-        <input type="text" placeholder="Your Name">
+            <p>
+                سواء كان لديك سؤال عن التقييم، الأنشطة، الخصوصية، أو طريقة استخدام المنصة، يسعد فريق احتواء بمساعدتك بخطوات واضحة ولطيفة.
+            </p>
+        </div>
 
-        <input type="email" placeholder="Your Email">
+        <div class="contact-hero-card">
+            <div class="contact-card-icon">
+                <i class="bi bi-envelope-heart"></i>
+            </div>
+            <h2>ردود داعمة وواضحة</h2>
+            <p>نقرأ رسالتك بعناية ونرد بما يناسب احتياجك ومرحلة طفلك.</p>
+        </div>
+    </section>
 
-        <textarea placeholder="Message"></textarea>
+    <section class="contact-content" aria-label="نموذج التواصل وبيانات التواصل">
+        <div class="contact-form-panel">
+            <div class="section-heading">
+                <h2>أرسل لنا رسالة</h2>
+                <p>اكتب التفاصيل التي تساعدنا على فهم طلبك، وسنعود إليك في أقرب وقت.</p>
+            </div>
 
-        <button type="submit">
-            Send
-        </button>
+            <form class="contact-form" method="post">
+                {% csrf_token %}
 
-    </form>
+                <div class="form-row">
+                    <label for="contact-name">الاسم الكامل</label>
+                    <input id="contact-name" name="name" type="text" placeholder="مثال: أحمد الحربي" required>
+                </div>
 
-</section>
+                <div class="form-row">
+                    <label for="contact-email">البريد الإلكتروني</label>
+                    <input id="contact-email" name="email" type="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-topic">موضوع الرسالة</label>
+                    <select id="contact-topic" name="topic" required>
+                        <option value="">اختر الموضوع</option>
+                        <option value="assessment">التقييم ورفع الفيديو</option>
+                        <option value="activities">الأنشطة وخطة الدعم</option>
+                        <option value="account">الحساب والملف الشخصي</option>
+                        <option value="privacy">الخصوصية والبيانات</option>
+                        <option value="other">موضوع آخر</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-message">رسالتك</label>
+                    <textarea id="contact-message" name="message" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea>
+                </div>
+
+                <button class="contact-submit" type="submit">
+                    إرسال الرسالة
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+            </form>
+        </div>
+
+        <aside class="contact-side">
+            <article class="contact-info-card">
+                <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
+                <div>
+                    <h3>البريد الإلكتروني</h3>
+                    <a href="mailto:support@ehtiwa.com">support@ehtiwa.com</a>
+                </div>
+            </article>
+
+            <article class="contact-info-card">
+                <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
+                <div>
+                    <h3>وقت الاستجابة</h3>
+                    <p>عادة خلال 24 إلى 48 ساعة عمل.</p>
+                </div>
+            </article>
+
+            <article class="contact-info-card">
+                <div class="contact-info-icon"><i class="bi bi-shield-check"></i></div>
+                <div>
+                    <h3>خصوصية الرسائل</h3>
+                    <p>نتعامل مع معلومات العائلة والطفل بسرية واحترام.</p>
+                </div>
+            </article>
+
+            <div class="contact-note">
+                <h3>قبل إرسال الرسالة</h3>
+                <p>
+                    إذا كان طلبك يتعلق بحالة طبية عاجلة، يرجى التواصل مباشرة مع مختص صحي أو جهة طوارئ محلية.
+                </p>
+            </div>
+        </aside>
+    </section>
+
+    <section class="contact-faq" aria-label="أسئلة سريعة">
+        <h2>أسئلة قد تساعدك</h2>
+
+        <div class="contact-faq-grid">
+            <article>
+                <h3>هل تقدم احتواء تشخيصًا طبيًا؟</h3>
+                <p>لا. احتواء يقدم أدوات دعم ومتابعة عامة، ولا يستبدل المختصين أو التشخيص الطبي.</p>
+            </article>
+
+            <article>
+                <h3>هل يمكنني تعديل بيانات طفلي لاحقًا؟</h3>
+                <p>نعم، عند توفر الملف الشخصي الكامل يمكنك تحديث البيانات بما يعكس احتياج الطفل الحالي.</p>
+            </article>
+        </div>
+    </section>
+
+</main>
 
 {% endblock %}

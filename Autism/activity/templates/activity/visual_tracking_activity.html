@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نشاط التركيز البصري</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: sans-serif;
+    }
+
+    body{
+      background:#ffffff;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .game-box{
+      width:900px;
+      height:500px;
+      background:#f6fff6;
+      border-radius:30px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .title{
+      position:absolute;
+      top:25px;
+      width:100%;
+      text-align:center;
+      font-size:32px;
+      font-weight:bold;
+      color:#2f855a;
+    }
+
+    .subtitle{
+      position:absolute;
+      top:75px;
+      width:100%;
+      text-align:center;
+      color:#666;
+      font-size:18px;
+    }
+
+    .star{
+      width:90px;
+      position:absolute;
+      bottom:80px;
+      right:-100px;
+      animation: moveStar 7s linear infinite alternate;
+    }
+
+    @keyframes moveStar {
+      0%{
+        right:-100px;
+        bottom:80px;
+        transform: rotate(0deg);
+      }
+
+      25%{
+        bottom:220px;
+      }
+
+      50%{
+        right:400px;
+        bottom:120px;
+        transform: rotate(180deg);
+      }
+
+      75%{
+        bottom:250px;
+      }
+
+      100%{
+        right:850px;
+        bottom:100px;
+        transform: rotate(360deg);
+      }
+    }
+
+    .cloud{
+      position:absolute;
+      width:120px;
+      opacity:0.2;
+    }
+
+    .cloud1{
+      top:40px;
+      left:40px;
+    }
+
+    .cloud2{
+      bottom:30px;
+      right:50px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="game-box">
+
+    <h1 class="title">تابع النجمة بعينيك 👀</h1>
+
+    <p class="subtitle">
+      حاول تركز على النجمة وهي تتحرك
+    </p>
+
+    <img 
+      class="star"
+      src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+      alt=""
+    >
+
+    <img 
+      class="cloud cloud1"
+      src="https://cdn-icons-png.flaticon.com/512/414/414927.png"
+      alt=""
+    >
+
+    <img 
+      class="cloud cloud2"
+      src="https://cdn-icons-png.flaticon.com/512/414/414927.png"
+      alt=""
+    >
+
+  </div>
+
+</body>
+</html>

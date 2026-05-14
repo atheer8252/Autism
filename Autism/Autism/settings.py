@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'community',
     'assessment',
     'children',
+    'plans',
+    'educational_videos',
     'activity',
 ]
 
