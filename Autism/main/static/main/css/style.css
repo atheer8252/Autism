@@ -2,10 +2,10 @@
 :root {
     --green-dark:    #5C6B48; /* #5C6B48 */
     --green-mid:     #6B7A55; /* #6B7A55 */
-    --green-light:   #8A9B72; /* #8A9B72 */
+    --green-light:   #74a92a; /* #8A9B72 */
     --orange:        #C97B3A;
-    --bg-page:       #F8F4EE; 
-    --bg-sidebar:    #F2EDE4; 
+    --bg-page:       #ffffff; /*#F8F4EE update*/
+    --bg-sidebar:    #8ee188;  /*#F2EDE4 update*/
     --bg-card:       #EDE7DC;
     --border:        #DDD7CC;
     --text-dark:     #2B2B2B;

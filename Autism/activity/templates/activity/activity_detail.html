@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} تفاصيل النشاط {% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'activity/css/style.css' %}"> {% endblock %}
+
+{% block content %}
+<div class="activity-container">
+    
+    <header class="activity-header">
+        <div class="activity-title">
+            <span style="font-size: 1.2rem;">✋</span>
+            <span>نشاط حسي - لعب بالمعجون الحسي</span>
+        </div>
+        <button onclick="history.back()" style="border: none; background: none; color: #999; cursor: pointer;">   إغلاق  ˄</button>    </header>
+
+    <div class="stepper-wrapper">
+        <div class="step-item active">
+            <div class="step-icon">📋</div>
+            <span>تجهيز</span>
+        </div>
+        <div class="step-item">
+            <div class="step-icon">✋</div>
+            <span>تنفيذ</span>
+        </div>
+        <div class="step-item">
+            <div class="step-icon">📅</div>
+            <span>تقييم</span>
+        </div>
+        <div class="step-item">
+            <div class="step-icon">✓</div>
+            <span>انتهى</span>
+        </div>
+    </div>
+
+    <main class="activity-content">
+        <div class="activity-image">
+            <img src="{% static 'images/child_play.jpg' %}" alt="نشاط المعجون">
+        </div>
+
+        <div class="checklist-section">
+            <h3>1. تجهيز النشاط</h3>
+            <p class="checklist-subtitle">حضّر البيئة والمواد اللازمة لنجاح النشاط</p>
+
+            <div class="task-list">
+                <div class="task-item done">
+                    <span>تجهيز المعجون الحسي بألوان مختلفة</span>
+                    <span class="check-circle"></span>
+                </div>
+                <div class="task-item done">
+                    <span>تأكد من نظافة اليدين والسطح</span>
+                    <span class="check-circle"></span>
+                </div>
+                <div class="task-item done">
+                    <span>وفّر مكان هادئ وخالٍ من المشتتات</span>
+                    <span class="check-circle"></span>
+                </div>
+                <div class="task-item">
+                    <span>اجلس مقابل الطفل على مستوى نظره</span>
+                    <span class="check-circle"></span>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-icon">💡</div>
+                <div>
+                    <strong style="color: #6c5ce7; font-size: 0.8rem;">نصيحة</strong>
+                    <p style="margin: 5px 0 0; font-size: 0.85rem; color: #666;">
+                        البيئة الهادئة تساعد الطفل على التركيز والاستمتاع بالنشاط.
+                    </p>
+                </div>
+            </div>
+            <!-- زر بدء التنفيذ -->
+            <div class="action-section">
+                <a href="{% url 'activity:activity_play' %}" class="btn-start-play">
+                    ابدأ تنفيذ النشاط الآن
+                </a>
+            </div>
+        </div>
+    </main>
+
+</div>
+{% endblock %}

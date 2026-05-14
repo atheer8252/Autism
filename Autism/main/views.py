@@ -28,4 +28,3 @@ def terms_of_service_view(request: HttpRequest):
 
 def cookie_policy_view(request: HttpRequest):
     return render(request, 'main/cookie_policy.html')
-    
