@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'community',
     'assessment',
     'children',
+    'plans',
+    'educational_videos',
     'activity',
 ]
 SITE_ID = 1

@@ -25,6 +25,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('community/', include('community.urls')),
     path('children/', include('children.urls')),
+    path('', include('plans.urls')), 
+    path('', include('educational_videos.urls')),
     path('assessment/', include ('assessment.urls')),
     path('activity/', include('activity.urls')), 
     path('reset-password/',auth_views.PasswordResetView.as_view(template_name='accounts/reset-password.html'),name='password_reset'),

@@ -15,3 +15,6 @@ def activity_result(request:HttpRequest):
 
 def activity_play(request:HttpRequest):
         return render(request, 'activity/activity_play.html')
+
+def activity_eye(request:HttpRequest):
+        return render(request, 'activity/visual_tracking_activity.html')
