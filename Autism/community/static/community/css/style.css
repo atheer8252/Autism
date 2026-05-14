@@ -4,7 +4,7 @@
   display:flex;
   gap:30px;
   align-items:flex-start;
-    direction:ltr;
+  direction:ltr;
 }
 
 .main,
@@ -14,7 +14,7 @@
 /* SIDEBAR */
 
 .community-sidebar{
-  width:300px;
+  width:250px;
   display:flex;
   flex-direction:column;
   gap:20px;
@@ -30,12 +30,12 @@
 
 .card h3{
   margin-bottom:8px;
-  font-size:20px;
+  font-size:16px;
 }
 
 .sub{
   color:#999;
-  font-size:14px;
+  font-size:12px;
   margin-bottom:20px;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .icon{
-  width:40px;
-  height:40px;
+  width:30px;
+  height:30px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -91,15 +91,17 @@
   color:#777;
 }
 
-.btn{
+.btn-feed{
+  text-decoration: none;
+  text-align: center;
   margin-top:22px;
   width:100%;
   border:none;
   background:#b7cea0;
   color:white;
-  padding:16px;
+  padding:12px;
   border-radius:40px;
-  font-size:16px;
+  font-size:12px;
   cursor:pointer;
   font-weight:bold;
 }
@@ -110,19 +112,19 @@
 }
 
 .shield{
-  font-size:40px;
+  font-size:30px;
   margin-bottom:12px;
 }
 
 .policy h4{
   margin-bottom:10px;
-  font-size:20px;
+  font-size:16px;
 }
 
 .policy p{
   color:#8d8d8d;
   line-height:1.6;
-  font-size:14px;
+  font-size:12px;
 }
 
 /* MAIN */
@@ -137,7 +139,7 @@
   border:1px solid #ececec;
   border-radius:40px;
   padding:18px 24px;
-  font-size:16px;
+  font-size:14px;
   margin-bottom:30px;
   outline:none;
 }
@@ -166,15 +168,15 @@
 }
 
 .avatar{
-  width:55px;
-  height:55px;
+  width:40px;
+  height:40px;
   border-radius:50%;
   color:white;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:bold;
-  font-size:22px;
+  font-size:18px;
 }
 
 .red{
@@ -191,19 +193,14 @@
 
 .user-info h4{
   margin-bottom:4px;
-  font-size:20px;
+  font-size:16px;
 }
 
 .user-info span{
   color:#999;
-  font-size:14px;
+  font-size:10px;
 }
 
-.menu{
-  color:#aaa;
-  font-size:22px;
-  cursor:pointer;
-}
 
 .menu-wrapper{
     position:relative;
@@ -212,36 +209,30 @@
 .menu-btn{
     border:none;
     background:none;
-    font-size:24px;
+    font-size:18px;
     color:#999;
     cursor:pointer;
 }
 
 .dropdown-menu{
     position:absolute;
-    top:40px;
+    top:20px;
     left:0;
-
     background:white;
     border:1px solid #ececec;
     border-radius:18px;
-
-    min-width:160px;
-
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
     display:none;
     overflow:hidden;
-
     z-index:100;
 }
 
 .dropdown-menu a{
-    display:block;
-    padding:14px 18px;
+  display:block;
+    padding:14px 10px;
     text-decoration:none;
     color:#444;
-    font-size:14px;
+    font-size:12px;
     transition:0.8s;
 }
 
@@ -257,7 +248,7 @@
   line-height:1.8;
   color:#555;
   margin-bottom:20px;
-  font-size:16px;
+  font-size:14px;
 }
 
 .tags{
@@ -291,20 +282,23 @@
   display:flex;
   gap:30px;
   color:#777;
-  font-size:15px;
+  font-size:12px;
 }
 
 .join-btn{
   border:1px solid #e5e5e5;
   background:white;
-  padding:12px 22px;
+  padding:10px 18px;
   border-radius:30px;
   font-weight:bold;
   color:#666;
   text-decoration:none;
   display:inline-block;
   transition:0.2s;
+  font-size: 10px;
 }
+
+
 
 .join-btn:hover{
   background:#f5f5f5;
