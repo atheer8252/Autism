@@ -4,6 +4,8 @@
 {% block title %}احتواء | الصفحة الرئيسية{% endblock %}
 {% block nav_home %}active{% endblock %}
 
+
+
 {% block content %}
 
 <div class="home-page">
@@ -11,7 +13,7 @@
     <section class="home-hero" aria-label="الصفحة الرئيسية">
         <div class="home-hero-visual">
             <div class="teddy-orb">
-                <img src="{% static 'main/images/teddy-drawing.svg' %}" alt="دب مرسوم لطيف للأطفال">
+                <img src="https://res.cloudinary.com/ddkq9ideu/image/upload/q_auto/f_auto/v1778738710/mupd1hhlm4w5vn23ot73.png" alt="دب مرسوم لطيف للأطفال">
             </div>
         </div>
 
@@ -22,8 +24,8 @@
             </div>
 
             <h1>
-                أنت تقوم بعمل رائع،<br>
-                <span>أيها الوالد.</span>
+                أنت جزء مهم من
+                <span> رحلة طفلك</span>
             </h1>
 
             <p>
@@ -31,7 +33,7 @@
             </p>
 
             <div class="home-actions">
-                <a href="{% url 'assessment:upload_video' %}" class="home-btn home-btn-primary">
+                <a href="#start" class="home-btn home-btn-primary">
                     ابدأ الآن
                     <i class="bi bi-arrow-left"></i>
                 </a>
@@ -42,7 +44,7 @@
         </div>
     </section>
 
-    <section class="home-quick-actions" aria-label="إجراءات سريعة">
+    <section class="home-quick-actions" aria-label="إجراءات سريعة" id="start">
         <article class="home-action-card upload-card">
             <div class="home-card-icon">
                 <i class="bi bi-camera"></i>
@@ -101,15 +103,15 @@
         <p>ابدأ رحلة الاكتشاف اليوم واحصل على خطة شخصية تناسب المرحلة القادمة لطفلك.</p>
 
         <div class="cta-actions">
-            <a href="{% url 'assessment:questionnaire' %}" class="home-btn home-btn-light">ابدأ الرحلة الآن</a>
+            <a href="#start" class="home-btn home-btn-light">ابدأ الرحلة الآن</a>
             <a href="{% url 'main:about_us' %}" class="home-link">اعرف المزيد</a>
         </div>
     </section>
 
-    <a href="{% url 'accounts:profile' %}" class="floating-profile" aria-label="الملف الشخصي">
+    <a href="" class="floating-profile" aria-label="الملف الشخصي">
         <i class="bi bi-person"></i>
     </a>
-
+<!-- https://res.cloudinary.com/ddkq9ideu/image/upload/v1778740017/da9x2mx1yubpeelqjva5.png -->
 </div>
 
 {% endblock %}
