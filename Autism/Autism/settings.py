@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'educational_videos',
     'activity',
     'support_map',
+    'rest_framework',
+    'chatbot'
 ]
 SITE_ID = 1
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from .forms import SignUpForm
 
@@ -56,14 +56,31 @@ def signin_view(request):
 
     return render(request, 'accounts/signin.html')
 
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect("accounts:signin")
+
 def reset_view(request):
     return render(request, 'accounts/reset-password.html')
 
 def guest_login(request):
     request.session['is_guest'] = True
     return redirect('main:home_page_view')
+
 def profile_view(request):
     return render(request, 'accounts/profile.html')
 
 def edit_profile_view(request):
     return render(request, 'accounts/edit-profile.html')
+
+def settings_view(request):
+    return render(request, 'accounts/settings.html')
+
+def likes_view(request):
+    return render(request, 'accounts/likes.html')
+
+def saved_centers_view(request):
+    return render(request, 'accounts/saved_centers.html')
+
+
