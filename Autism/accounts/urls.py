@@ -11,5 +11,4 @@ urlpatterns = [
     path('accounts/profile/', views.profile_view,name='profile'),
     path('accounts/edit/profile/', views.edit_profile_view,name='edit_profile'),
     path('accounts/settings', views.settings_view,name='settings'),
-    path('accounts/likes', views.likes_view,name='likes'),
 ]

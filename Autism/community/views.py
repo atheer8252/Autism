@@ -14,3 +14,6 @@ def create_post_view (request:HttpResponse):
 def details_post_view (request:HttpResponse):
 
     return render (request, 'community/details_post.html')
+
+def likes_view(request):
+    return render(request, 'community/likes.html')

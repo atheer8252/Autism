@@ -73,5 +73,4 @@ def settings_view(request):
     return render(request, 'accounts/settings.html')
 
 
-def likes_view(request):
-    return render(request, 'accounts/likes.html')
+
