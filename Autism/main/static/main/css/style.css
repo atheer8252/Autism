@@ -65,7 +65,7 @@ body {
     width: 66px;
     height: 66px;
     border-radius: 50%;
-    background-color: var(--green-mid);
+    background-color: #EDE7DC !important; /*var(--green-mid)*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +74,7 @@ body {
 
 .logo-circle i {
     font-size: 30px;
-    color: #fff;
+    color: #EDE7DC;
 }
 
 .logo-title {
@@ -2559,4 +2559,250 @@ body {
     .about-btn-light {
         width: 100%;
     }
+}
+
+/****************************************************/
+/* Question  */
+
+/* تنسيقات إضافية لصفحة الأسئلة */
+.faq-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.faq-item:hover {
+    border-color: #b9d4a7; /* لون الثيم الأخضر */
+    transform: translateY(-3px);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h2 {
+    margin: 0 !important;
+    font-size: 1.2rem !important;
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.4s ease;
+    color: #b9d4a7;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    padding-left: 10px;
+}
+
+/* الحالة النشطة عند الفتح */
+.faq-item.active {
+    background-color: #f4f8f2; /* اللون الفاتح من الثيم */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out;
+    margin-top: 15px;
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.faq-content {
+    width: 100%;
+}
+
+/************************************************/
+/*logo*/
+.logo-circle {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* الحفاظ على لونك المفضل كما طلبتِ */
+    background-color: #EDE7DC !important; 
+    border: none !important;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    /* تغيير contain إلى cover يضمن أن اللوجو سيمتد ليغطي الدائرة تماماً */
+    object-fit: cover; 
+    padding: 0 !important;
+    margin-top: -8px;
+    /* margin: 0 !important; */
+    /* التحكم في الزوم: إذا شعرتِ أنه كبير جداً يمكنك تقليل الرقم إلى 1.15 */
+    transform: scale(1.20); 
+    transition: transform 0.3s ease;
+}
+
+/* إضافة هذه الجزئية لضمان نعومة الحواف في المتصفحات المختلفة */
+.logo-circle img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/***********************************************/
+/* أعضاء الفريق */
+
+.team-modern {
+    padding: 100px 5%;
+    background: #fcfdfb;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.academy-badge {
+    background: #EDE7DC;
+    color: #6B7B5F;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* هنا جعلناهم 2 بجانب بعض */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.member-card {
+    display: flex; /* جعل المحتوى بالعرض */
+    align-items: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(107, 123, 95, 0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card:hover {
+    transform: translateX(-10px); /* حركة لليمين بسيطة عند التمرير */
+    border-color: #6B7B5F;
+    box-shadow: 0 25px 50px rgba(107, 123, 95, 0.1);
+}
+
+.member-img {
+    width: 130px;
+    height: 130px;
+    min-width: 130px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 25px; /* مسافة بين الصورة والنص */
+    transform: rotate(-3deg);
+    transition: all 0.5s ease;
+}
+
+.member-card:hover .member-img {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-details {
+    text-align: right;
+}
+
+.role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6B7B5F;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.member-details h3 {
+    font-size: 1.5rem;
+    color: #2d3436;
+    margin-bottom: 12px;
+}
+
+.member-details p {
+    font-size: 0.95rem;
+    color: #636e72;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* للتوافق مع الجوال: اخليهم كارد واحد تحت بعض */
+@media (max-width: 900px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .member-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .member-details {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .member-img {
+        margin-left: 0;
+    }
+}
+
+/*******************************************/
+/*chatbot css*/
+.chat-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.chat-modal.active {
+    display: flex;
+}
+
+.chat-box {
+    width: 400px;
+    height: 500px;
+    background: #1e1e2f;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #4f46e5;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    cursor: pointer;
 }

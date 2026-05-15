@@ -32,11 +32,11 @@
             <!-- Logo -->
             <div class="sidebar-logo">
                 <div class="logo-circle">
-                    <!-- <img src="https://res.cloudinary.com/ddkq9ideu/image/upload/q_auto/f_auto/v1778744601/logo-1_yepbvy.png"> -->
+                    <!-- إضافة الرابط الجديد والتأكد من تفعيله -->
+                    <img src="https://res.cloudinary.com/ddkq9ideu/image/upload/q_auto/f_auto/v1778787766/update-logo-removebg-preview_tmgxol.png" alt="لوجو إحتواء">
                 </div>
                 <div>
                     <div class="logo-title">إحتواء</div>
-                    <div class="logo-subtitle">رحلة نمو طفلك</div>
                 </div>
             </div>
 
@@ -117,7 +117,7 @@
                         <i class="bi bi-chat-dots nav-icon"></i>
                     </a>
 
-                    <a href="#" class="nav-link-item {% block nav_faq %}{% endblock %}">
+                    <a href="{% url 'main:questions' %}" class="nav-link-item {% block nav_faq %}{% endblock %}">
                         <span class="nav-label">الأسئلة الشائعة</span>
                         <i class="bi bi-question-circle nav-icon"></i>
                     </a>
@@ -247,6 +247,7 @@
 
     <!-- Active nav highlight helper -->
     <script>
+        
         document.addEventListener('DOMContentLoaded', function () {
             const current = window.location.pathname;
             document.querySelectorAll('.nav-link-item').forEach(function (link) {
@@ -255,8 +256,39 @@
                 }
             });
         });
-    </script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
 
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // إغلاق أي سؤال آخر مفتوح (اختياري)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // تبديل حالة السؤال الحالي
+            item.classList.toggle('active');
+        });
+    });
+
+    // تحسين حركة التنقل السلس (Smooth Scroll) للروابط الجانبية
+    document.querySelectorAll('.toc-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+    
+</script>
     {% block extra_js %}{% endblock %}
 </body>
 

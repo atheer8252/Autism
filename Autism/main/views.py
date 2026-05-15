@@ -26,3 +26,5 @@ def terms_of_service_view(request: HttpRequest):
     return render(request, 'main/terms_of_service.html')
 
 
+def questions_view(request: HttpRequest):
+    return render(request, 'main/questions.html')
