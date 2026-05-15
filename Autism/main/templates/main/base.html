@@ -79,10 +79,10 @@
                 <div class="nav-group">
                     <div class="nav-group-label">المتابعة</div>
 
-                <a href="{% url 'plans:main_plan_view' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
-                    <span class="nav-label">خطة الدعم</span>
-                    <i class="bi bi-calendar-check nav-icon"></i>
-                </a>
+                    <a href="{% url 'plans:main_plan_view' %}" class="nav-link-item {% block nav_plan %}{% endblock %}">
+                        <span class="nav-label">خطة الدعم</span>
+                        <i class="bi bi-calendar-check nav-icon"></i>
+                    </a>
 
                     <a href="{% url 'activity:activity_list' %}" class="nav-link-item {% block nav_activity %}{% endblock %}">
                         <span class="nav-label">الأنشطة</span>
@@ -127,7 +127,7 @@
                 <div class="nav-group">
                     <div class="nav-group-label">الإعدادات</div>
 
-                    <a href="#" class="nav-link-item ">
+                    <a href="{% url 'accounts:settings' %}" class="nav-link-item ">
                         <span class="nav-label">الإعدادات</span>
                         <i class="bi bi-gear nav-icon"></i>
                     </a>
@@ -188,7 +188,7 @@
                     </div>
 
                     <!-- col 2: استكشاف -->
-                    <div >
+                    <div>
                         <div class="footer-col-title">استكشاف</div>
                         <ul class="footer-col-links">
                             <li><a href="{% url 'main:how_it_works' %}">كيف يعمل</a></li>
@@ -231,7 +231,7 @@
                         &copy; {% now "Y" %} إحتواء. جميع الحقوق محفوظة. صُنع بمحبة للآباء والأمهات.
                     </span>
                     <!-- left in RTL: legal links -->
-                    
+
                 </div>
 
             </footer>

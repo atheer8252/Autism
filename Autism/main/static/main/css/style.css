@@ -1,22 +1,33 @@
-
 :root {
-    --green-dark:    #5C6B48; /* #5C6B48 */
-    --green-mid:     #6B7A55; /* #6B7A55 */
-    --green-light:   #74a92a; /* #8A9B72 */
-    --orange:        #C97B3A;
-    --bg-page:       #ffffff; /*#F8F4EE update*/
-    --bg-sidebar:    #aec3b0;  /*#F2EDE4 update*/
-    --bg-card:       #EDE7DC;
-    --border:        #DDD7CC;
-    --text-dark:     #2B2B2B;
-    --text-mid:      #5A5A5A;
-    --text-muted:    #9A9589;
-    --sidebar-w:     250px;
-    --radius:        10px;
+    --green-dark: #5C6B48;
+    /* #5C6B48 */
+    --green-mid: #6B7A55;
+    /* #6B7A55 */
+    --green-light: #74a92a;
+    /* #8A9B72 */
+    --orange: #C97B3A;
+    --bg-page: #ffffff;
+    /*#F8F4EE update*/
+    --bg-sidebar: #aec3b0;
+    /*#F2EDE4 update*/
+    --bg-card: #EDE7DC;
+    --border: #DDD7CC;
+    --text-dark: #2B2B2B;
+    --text-mid: #5A5A5A;
+    --text-muted: #9A9589;
+    --sidebar-w: 250px;
+    --radius: 10px;
 }
 
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Tajawal', sans-serif;
     background-color: var(--bg-page);
@@ -27,7 +38,8 @@ body {
 /* ─── App Shell ──────────────────────────────────────────── */
 .app-shell {
     display: flex;
-    flex-direction: row;   /* sidebar right, content left — handled by RTL */
+    flex-direction: row;
+    /* sidebar right, content left — handled by RTL */
     min-height: 100vh;
 }
 
@@ -48,9 +60,18 @@ body {
 }
 
 /* thin scrollbar */
-.sidebar::-webkit-scrollbar { width: 3px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.sidebar::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
 
 /* ─── Logo ───────────────────────────────────────────────── */
 .sidebar-logo {
@@ -109,7 +130,9 @@ body {
     padding: 8px 0 12px;
 }
 
-.nav-scroll::-webkit-scrollbar { width: 0; }
+.nav-scroll::-webkit-scrollbar {
+    width: 0;
+}
 
 /* ─── Section Group ──────────────────────────────────────── */
 .nav-group {
@@ -165,7 +188,7 @@ body {
 .nav-label {
     flex: 1;
     text-align: right;
-    color : #3f5e35;
+    color: #3f5e35;
 }
 
 /* icon is second in DOM → left of label in RTL */
@@ -265,7 +288,8 @@ body {
 
 /* ─── Main Content ───────────────────────────────────────── */
 .main-wrapper {
-    margin-right: var(--sidebar-w);   /* push left of sidebar */
+    margin-right: var(--sidebar-w);
+    /* push left of sidebar */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -737,7 +761,7 @@ body {
     text-align: center;
 }
 
-.home-features > h2 {
+.home-features>h2 {
     margin: 0;
     font-size: 32px;
     line-height: 1.35;
@@ -982,7 +1006,7 @@ body {
         padding: 62px 16px;
     }
 
-    .home-features > h2,
+    .home-features>h2,
     .home-cta h2 {
         font-size: 28px;
     }
@@ -1074,7 +1098,7 @@ body {
     box-shadow: 0 14px 34px rgba(26, 32, 22, 0.06);
 }
 
-.legal-summary div + div {
+.legal-summary div+div {
     margin-top: 18px;
     padding-top: 18px;
     border-top: 1px solid var(--legal-line);
@@ -1561,7 +1585,7 @@ body {
     padding: 0 28px;
 }
 
-.contact-faq > h2 {
+.contact-faq>h2 {
     margin: 0 0 24px;
     text-align: center;
     color: var(--contact-ink);
@@ -1596,6 +1620,7 @@ body {
 }
 
 @media (max-width: 980px) {
+
     .contact-hero,
     .contact-content {
         grid-template-columns: 1fr;
@@ -1643,7 +1668,7 @@ body {
     }
 
     .section-heading h2,
-    .contact-faq > h2 {
+    .contact-faq>h2 {
         font-size: 27px;
     }
 
@@ -2051,6 +2076,7 @@ body {
 }
 
 @media (max-width: 980px) {
+
     .how-hero,
     .how-support {
         grid-template-columns: 1fr;
@@ -2062,6 +2088,7 @@ body {
 }
 
 @media (max-width: 680px) {
+
     .how-steps-grid,
     .how-trust {
         grid-template-columns: 1fr;
@@ -2483,6 +2510,7 @@ body {
 }
 
 @media (max-width: 980px) {
+
     .about-hero,
     .about-story,
     .about-note {
@@ -2503,6 +2531,7 @@ body {
 }
 
 @media (max-width: 760px) {
+
     .about-mission,
     .about-values-grid {
         grid-template-columns: 1fr;
