@@ -1,0 +1,458 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} الإعدادات {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="settings-page">
+
+    <div class="page-heading">
+        <h1>⚙️ <span>الإعدادات</span></h1>
+        <p>تحكّم في حسابك وتفضيلاتك الشخصية.</p>
+    </div>
+
+    <div class="settings-tabs">
+        <button class="settings-tab active" onclick="switchTab('account', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+            الحساب
+        </button>
+        <button class="settings-tab" onclick="switchTab('notifications', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            الإشعارات
+        </button>
+        <button class="settings-tab" onclick="switchTab('appearance', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg>
+            المظهر
+        </button>
+        <button class="settings-tab" onclick="switchTab('privacy', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            الخصوصية
+        </button>
+        <button class="settings-tab" onclick="switchTab('danger', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            الحذف
+        </button>
+    </div>
+
+
+    <div class="settings-section active" id="tab-account">
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                البريد الإلكتروني
+            </div>
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="s-email">البريد الحالي</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="email" id="s-email" name="email" value="{{ user.email }}" />
+                    </div>
+                    <p class="field-hint">ستصلك رسالة تأكيد على البريد الجديد قبل تطبيق التغيير.</p>
+                </div>
+                <button type="submit" class="btn-primary btn-sm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m20 6-11 11-5-5" />
+                    </svg>
+                    تحديث البريد
+                </button>
+            </form>
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                كلمة المرور
+            </div>
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="s-pw-old">كلمة المرور الحالية</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </span>
+                        <input class="form-input" type="password" id="s-pw-old" name="old_password" placeholder="••••••••" />
+                    </div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="s-pw-new">كلمة المرور الجديدة</label>
+                        <div class="input-wrap">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </span>
+                            <input class="form-input" type="password" id="s-pw-new" name="new_password" placeholder="••••••••" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="s-pw-confirm">تأكيد كلمة المرور</label>
+                        <div class="input-wrap">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </span>
+                            <input class="form-input" type="password" id="s-pw-confirm" name="confirm_password" placeholder="••••••••" />
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary btn-sm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m20 6-11 11-5-5" />
+                    </svg>
+                    تغيير كلمة المرور
+                </button>
+            </form>
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                اللغة
+            </div>
+            <div class="form-group">
+                <label for="s-lang">لغة التطبيق</label>
+                <div class="select-wrap">
+                    <select class="form-input no-icon" id="s-lang" name="language">
+                        <option value="ar" selected>العربية 🇸🇦</option>
+                        <option value="en">English 🇬🇧</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-primary btn-sm" onclick="showToast('تم حفظ اللغة')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m20 6-11 11-5-5" />
+                </svg>
+                حفظ
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="settings-section" id="tab-notifications">
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                إعدادات الإشعارات
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>ملخص التقدم الأسبوعي</h4>
+                    <p>تقرير أسبوعي عن تطور مهارات طفلك</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>تذكيرات الأنشطة اليومية</h4>
+                    <p>تذكير لطيف لتسجيل ملاحظات اليوم</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>ردود المجتمع</h4>
+                    <p>إشعار عند رد أحدهم على منشوراتك</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>توصيات الأخصائيين</h4>
+                    <p>إشعار عند توفر موارد تناسب ملف طفلك</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>رسائل البريد الإلكتروني</h4>
+                    <p>استلام الإشعارات عبر البريد أيضاً</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="settings-section" id="tab-appearance">
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+                </svg>
+                وضع العرض
+            </div>
+
+            <div class="theme-options">
+                <div class="theme-option active" onclick="setTheme('light', this)">
+                    <div class="theme-preview light-preview">
+                        <div class="theme-prev-sidebar"></div>
+                        <div class="theme-prev-content">
+                            <div class="theme-prev-bar"></div>
+                            <div class="theme-prev-bar short"></div>
+                        </div>
+                    </div>
+                    <span>فاتح</span>
+                </div>
+                <div class="theme-option" onclick="setTheme('dark', this)">
+                    <div class="theme-preview dark-preview">
+                        <div class="theme-prev-sidebar"></div>
+                        <div class="theme-prev-content">
+                            <div class="theme-prev-bar"></div>
+                            <div class="theme-prev-bar short"></div>
+                        </div>
+                    </div>
+                    <span>داكن</span>
+                </div>
+                <div class="theme-option" onclick="setTheme('system', this)">
+                    <div class="theme-preview system-preview">
+                        <div class="theme-prev-sidebar"></div>
+                        <div class="theme-prev-content">
+                            <div class="theme-prev-bar"></div>
+                            <div class="theme-prev-bar short"></div>
+                        </div>
+                    </div>
+                    <span>تلقائي</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 7 4 4 20 4 20 7" />
+                    <line x1="9" y1="20" x2="15" y2="20" />
+                    <line x1="12" y1="4" x2="12" y2="20" />
+                </svg>
+                حجم الخط
+            </div>
+            <div class="font-size-row">
+                <span class="font-label small">ص</span>
+                <input type="range" class="font-slider" min="1" max="3" value="2" oninput="updateFontLabel(this)" />
+                <span class="font-label large">ص</span>
+            </div>
+            <p class="field-hint" id="font-size-label">متوسط</p>
+        </div>
+
+    </div>
+
+    <div class="settings-section" id="tab-privacy">
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                إعدادات الخصوصية
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>إظهار الملف في المجتمع</h4>
+                    <p>يمكن لأعضاء المجتمع رؤية ملفك الشخصي</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>مشاركة بيانات التحسين</h4>
+                    <p>المساعدة في تحسين التطبيق بمشاركة بيانات الاستخدام</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <div class="pref-row">
+                <div class="pref-text">
+                    <h4>تسجيل الدخول بخطوتين</h4>
+                    <p>حماية إضافية لحسابك</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" onchange="showToast('تم حفظ الإعداد')" />
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="edit-section">
+            <div class="edit-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                تصدير البيانات
+            </div>
+            <p class="field-hint" style="margin-bottom: 14px;">تحميل نسخة كاملة من بيانات حسابك وبيانات أطفالك.</p>
+            <button class="btn-outline" onclick="showToast('جاري تجهيز ملف البيانات...')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                تصدير بياناتي
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="settings-section" id="tab-danger">
+
+        <div class="edit-section danger-zone">
+            <div class="edit-section-title danger-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                منطقة الخطر
+            </div>
+
+            <div class="danger-item">
+                <div class="danger-item-text">
+                    <h4>تسجيل الخروج من جميع الأجهزة</h4>
+                    <p>إنهاء جميع جلسات الدخول النشطة على أجهزتك الأخرى.</p>
+                </div>
+                <button class="btn-outline" onclick="showToast('تم تسجيل الخروج من جميع الأجهزة')">
+                    تسجيل الخروج
+                </button>
+            </div>
+
+            <div class="danger-item" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #f0bfb0;">
+                <div class="danger-item-text">
+                    <h4>حذف الحساب نهائياً</h4>
+                    <p>سيتم حذف جميع بياناتك وبيانات أطفالك بشكل دائم ولا يمكن التراجع عن هذا الإجراء.</p>
+                </div>
+                <button class="btn-danger" onclick="confirmDeleteAccount()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                    </svg>
+                    حذف حسابي
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="settings-toast" id="settingsToast"></div>
+
+</div>
+
+<script>
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.settings-section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('settingsToast');
+        toast.textContent = '✅ ' + msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function setTheme(theme, el) {
+        document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+        el.classList.add('active');
+        showToast('تم تغيير المظهر');
+    }
+
+    function updateFontLabel(input) {
+        const labels = ['صغير', 'متوسط', 'كبير'];
+        document.getElementById('font-size-label').textContent = labels[input.value - 1];
+        showToast('تم تغيير حجم الخط');
+    }
+
+    function confirmDeleteAccount() {
+        if (confirm('هل أنت متأكد تماماً من حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.')) {
+            window.location.href = '';
+        }
+    }
+</script>
+
+
+{% endblock %}

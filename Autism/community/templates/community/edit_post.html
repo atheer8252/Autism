@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-إنشاء نقاش
+تعديل النقاش
 {% endblock %}
 
 {% block style %} <link rel="stylesheet" href="{% static 'community/css/style.css' %}"> {% endblock %}
@@ -13,11 +13,11 @@
 <div class="create-page">
 
     <h1 class="page-title">
-        إنشاء نقاش جديد
+       تعديل النقاش
     </h1>
 
     <p class="page-subtitle">
-        شارك تجربتك أو اطرح سؤالًا على المجتمع
+       قم بتعديل بيانات النقاش
     </p>
 
     <div class="create-card">
@@ -34,7 +34,7 @@
                     عنوان النقاش
                 </label>
 
-                <input type="text" class="form-input" placeholder="اكتب عنوانًا واضحًا..." name="title" required>
+                <input type="text" class="form-input" placeholder="اكتب عنوانًا واضحًا..." name="title" required value="{{ form.title.value }}">
 
             </div>
 
@@ -52,13 +52,16 @@
 
                         {% if value %}
 
-                            <option value="{{ value }}">
+                            <option
+                                value="{{ value }}"
+                                {% if form.category.value == value %}selected{% endif %}>
                                 {{ label }}
                             </option>
 
                         {% endif %}
 
                     {% endfor %}
+
                 </select>
 
             </div>
@@ -70,58 +73,31 @@
                 <label class="form-label">
                     محتوى النقاش
                 </label>
-
-                <textarea class="form-textarea" placeholder="اكتب تفاصيل النقاش هنا..." name="content" required></textarea>
-
+                <textarea class="form-textarea" placeholder="اكتب تفاصيل النقاش هنا..." name="content" required>{{ form.content.value }}</textarea>
             </div>
 
-            <!-- TAGS -->
+            <div class="form-group">
 
-           <!-- TAGS -->
+                <label class="form-label">
+                    الوسوم
+                </label>
 
-<div class="form-group">
+                <input value="{{ form.tags.value }}" type="text" class="form-input" name="tags" placeholder="مثال: #النطق #التوحد #التواصل" required>
 
-    <label class="form-label">
-        الوسوم
-    </label>
-
-    <input
-        type="text"
-        class="form-input"
-        name="tags"
-        placeholder="مثال: #النطق #التوحد #التواصل"
-        required
-    >
-
-    <small class="tags-note">
-        اكتب الوسوم باستخدام #
-    </small>
-
-</div>
-
-
-
-            <!-- ACTIONS -->
-
+                <small class="tags-note">
+                    اكتب الوسوم باستخدام #
+                </small>
+            </div>
             <div class="actions">
-
                 <a type="button" class="cancel-btn" href="javascript:history.back()">
                     إلغاء
                 </a>
-
-                <button
-                    type="submit"
-                    class="publish-btn"
-                >
-                    نشر النقاش
+                <button type="submit" class="publish-btn">
+                   حفظ التعديلات
                 </button>
-
             </div>
-
         </form>
-
     </div>
-
 </div>
 
 {% endblock %}
