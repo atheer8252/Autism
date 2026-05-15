@@ -12,7 +12,7 @@
 
 <div class="discussion-page">
 
-    <a href="javascript:history.back()" class="back-link">
+    <a href="{%url 'community:community_view'%}" class="back-link">
         ← العودة للمجتمع
     </a>
 
@@ -25,54 +25,49 @@
             <div class="user">
 
                 <div class="avatar-inside">
-                    س
+                    {{ post.user.first_name|first }}{{ post.user.last_name|first }}
                 </div>
 
                 <div class="user-info">
-                    <h3>سارة</h3>
-                    <span>أم جديدة • منذ ساعتين</span>
+                    <h3>{{ post.user.first_name }}</h3>
+                    <span>منذ {{ post.created_at|timesince }}</span>
                 </div>
 
             </div>
 
-            <div class="post-menu">
-                ⋯
+            <div class="menu-wrapper">
+                <button class="menu-btn">
+                    ⋯
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#">
+                        🚩 إبلاغ
+                    </a>
+                </div>
             </div>
 
         </div>
 
         <h1 class="post-title">
-            طفلي صار يرفض النوم فجأة، هل هذا طبيعي؟
+           {{ post.title }}
         </h1>
 
         <div class="post-content">
 
-            من أسبوع تقريبًا بدأ طفلي يرفض النوم
-            بالليل وحتى القيلولة صارت أصعب بكثير.
-
-            حاولت أغير وقت النوم وأخفف اللعب قبل النوم
-            لكن ما فيه فرق واضح 😭
-
-            هل أحد مر بنفس التجربة؟
-            وكيف تعاملتوا معها؟
+           {{ post.content }}
 
         </div>
 
         <!-- TAGS -->
 
         <div class="tags">
+          {% for tag in post.tags.split %}
 
-            <a href="#" class="tag">
-                #النوم
+          <a href="#" class="tag">
+                {{ tag }}
             </a>
 
-            <a href="#" class="tag">
-                #الأطفال
-            </a>
-
-            <a href="#" class="tag">
-                #تجارب_الأمهات
-            </a>
+            {% endfor %}
 
         </div>
 
@@ -81,13 +76,45 @@
         <div class="post-footer">
 
             <div class="post-stats">
-                <span>♡ 24 إعجاب</span>
-                <span>💬 15 تعليق</span>
+                <span>♡ {{ post.likes.count }} إعجاب</span>
+                <span>💬 {{ post.comments.count }} تعليق</span>
             </div>
 
-            <button class="like-btn">
-                ❤️ إعجاب
+            
+            {% if request.user.is_authenticated %}
+
+            <div class="post-menu">
+
+    {% if request.user == post.user %}
+
+        <div class="post-actions">
+
+            <a href="{% url 'community:edit_post_view' post.id %}"
+               class="edit-btn">
+                تعديل
+            </a>
+
+            <button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal">
+             حذف 
             </button>
+
+        </div>
+        {%else%}
+        <a href="{% url 'community:like_post_view' post.id %}"
+            class="like-btn">
+
+                {% if is_liked %}
+                <i class="bi bi-heart-fill"></i>
+                    
+                {% else %}
+                    <i class="bi bi-heart"></i>
+                {% endif %}
+            </a>
+
+    {% endif %}
+
+</div>
+{%endif%}
 
         </div>
 
@@ -100,65 +127,157 @@
     </h2>
 
     <!-- COMMENT -->
+     {% if post.comments.all %}
+     {% for comment in post.comments.all %}
 
     <div class="comment-card">
 
         <div class="comment-header">
 
             <div class="comment-avatar">
-                أ
+            {{ comment.user.first_name|first }}{{comment.user.last_name|first }}
+
             </div>
 
             <div class="comment-user">
-                <h4>أحمد</h4>
-                <span>منذ ساعة</span>
+                <h4>{{ comment.user.first_name }}</h4>
+                <span>منذ {{ comment.created_at|timesince }}</span>
             </div>
 
         </div>
 
-        <div class="comment-text">
+        <div class="comment-text"
+     id="comment-text-{{ comment.id }}">
 
-            طبيعي جدًا يمر الأطفال بفترات يتغير فيها
-            نمط النوم، خصوصًا مع النمو أو التسنين.
+    {{ comment.content }}
+
+</div>
+
+<form
+    method="POST"
+    action="{% url 'community:edit_comment_view' comment.id %}"
+    class="edit-comment-form"
+    id="edit-form-{{ comment.id }}"
+    style="display:none;"
+>
+
+    {% csrf_token %}
+
+    <textarea
+        name="content"
+        class="comment-input"
+    >{{ comment.content }}</textarea>
+
+    <div class="comment-actions">
+
+        <button
+            type="submit"
+            class="publish-comment"
+        >
+
+            حفظ
+
+        </button>
+
+        <button
+            type="button" class="cancel-btn" data-comment="{{ comment.id }}">
+            إلغاء
+        </button>
+
+    </div>
+
+</form>
+
+{% if request.user == comment.user %}
+
+<div class="comment-buttons">
+
+    <button data-comment="{{ comment.id }}" class="edit-btn">
+        تعديل
+    </button>
+
+    <button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteCommentModal{{ comment.id }}">
+        حذف
+    </button>
+
+</div>
+
+{% endif %}
+
+    </div>
+    <div class="modal fade" id="deleteCommentModal{{ comment.id }}" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    حذف التعليق
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                هل أنت متأكد من حذف هذا التعليق؟
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    إلغاء
+
+                </button>
+
+                <a href="{% url 'community:delete_comment_view' comment.id %}"
+                   class="btn btn-danger">
+
+                    حذف
+
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- COMMENT -->
+</div>
+    {% endfor %}
+    {% else %}
 
-    <div class="comment-card">
+    <div class="empty-comments">
 
-        <div class="comment-header">
-
-            <div class="comment-avatar">
-                ر
-            </div>
-
-            <div class="comment-user">
-                <h4>ريم</h4>
-                <span>منذ 35 دقيقة</span>
-            </div>
-
-        </div>
-
-        <div class="comment-text">
-
-            جربي تخففين الإضاءة قبل النوم بساعة،
-            هذا الشيء ساعد طفلي كثير.
-
-        </div>
+        لا توجد تعليقات حاليًا
 
     </div>
+
+{% endif %}
+
+
 
     <!-- ADD COMMENT -->
+     {% if request.user.is_authenticated %}
 
     <div class="add-comment">
+        <form method="POST">
+        {% csrf_token %}
 
-        <textarea
-            class="comment-input"
-            placeholder="اكتب تعليقك هنا..."
-        ></textarea>
+        <textarea required class="comment-input" placeholder="اكتب تعليقك هنا..." name="content"></textarea>
 
         <div class="comment-actions">
 
@@ -167,9 +286,125 @@
             </button>
 
         </div>
+            </form>
+
+
+    </div>
+    {% else %}
+
+    <div class="empty-comments">
+
+        يجب تسجيل الدخول لإضافة تعليق
+
+    </div>
+
+{% endif %}
+
+</div>
+
+<div class="modal fade"
+     id="deleteModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    حذف النقاش
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                هل أنت متأكد من حذف هذا النقاش؟
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    إلغاء
+
+                </button>
+
+                <a href="{% url 'community:delete_post_view' post.id %}"
+                   class="btn btn-danger">
+
+                    حذف
+
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
 
+<script>
+
+    function openEdit(commentId){
+
+        document.getElementById(
+            `comment-text-${commentId}`
+        ).style.display = 'none';
+
+        document.getElementById(
+            `edit-form-${commentId}`
+        ).style.display = 'block';
+
+    }
+
+    function closeEdit(commentId){
+
+        document.getElementById(
+            `comment-text-${commentId}`
+        ).style.display = 'block';
+
+        document.getElementById(
+            `edit-form-${commentId}`
+        ).style.display = 'none';
+
+    }
+
+    document.querySelectorAll('.open-edit-btn')
+    .forEach(button => {
+
+        button.addEventListener('click', function(){
+
+            openEdit(this.dataset.comment);
+
+        });
+
+    });
+
+    document.querySelectorAll('.close-edit-btn')
+    .forEach(button => {
+
+        button.addEventListener('click', function(){
+
+            closeEdit(this.dataset.comment);
+
+        });
+
+    });
+
+</script>
 {% endblock %}

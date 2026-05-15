@@ -31,7 +31,7 @@
 
           </div>
 
-          <div class="count">12</div>
+          <div class="count">{{ sleep_count }}</div>
 
         </div>
 
@@ -47,7 +47,7 @@
 
           </div>
 
-          <div class="count">8</div>
+          <div class="count">{{ food_count }}</div>
 
         </div>
 
@@ -63,7 +63,7 @@
 
           </div>
 
-          <div class="count">24</div>
+          <div class="count">{{ play_count }}</div>
 
         </div>
 
@@ -79,13 +79,14 @@
 
           </div>
 
-          <div class="count">5</div>
+          <div class="count"> {{ education_count }}</div>
 
         </div>
-
+        {% if request.user.is_authenticated %}
         <a class="btn-feed" href="{%url 'community:create_post_view'%}">
           + إنشاء نقاش
         </a>
+        {%endif%}
 
       </div>
 
@@ -109,14 +110,11 @@
     <!-- MAIN CONTENT -->
 
     <div class="main">
-
-      <input
-        type="text"
-        class="search"
-        placeholder="ابحث عن نقاشات أو تجارب..."
-      >
-
-      <!-- POST 1 -->
+      <form method="get" >
+      <input type="text" class="search" placeholder="ابحث عن نقاشات أو تجارب..." value="{{ request.GET.search }}" name="search" >
+        </form>
+        {% if posts %}
+      {% for post in posts %}
 
       <div class="post">
 
@@ -125,197 +123,65 @@
           <div class="user">
 
             <div class="avatar red">
-              س
+             {{ post.user.first_name|first }}{{ post.user.last_name|first }}
             </div>
 
             <div class="user-info">
-              <h4>سارة</h4>
-              <span>أم جديدة • منذ ساعتين</span>
+              {{ post.user.first_name }}
+              <span>منذ {{ post.created_at|timesince }}</span>
             </div>
-
           </div>
-
           <div class="menu-wrapper">
-
                 <button class="menu-btn">
                     ⋯
                 </button>
-
                 <div class="dropdown-menu">
-
                     <a href="#">
                         🚩 إبلاغ
                     </a>
-
-
                 </div>
-
             </div>
-
         </div>
-
         <div class="post-text">
-          هل أحد طفله صار يرفض النوم فجأة؟
-          أحاول أنظّم نومه لكن كل مرة يبدأ يضحك ويلعب 😭
+         {{ post.title }}
         </div>
 
         <div class="tags">
+          {% for tag in post.tags.split %}
 
-          <a href="#" class="tag">#النوم</a>
-          <a href="#" class="tag">#الأطفال</a>
-          <a  href="#" class="tag">#تجارب_الأمهات</a>
+          <a href="#" class="tag">
+                {{ tag }}
+            </a>
+
+            {% endfor %}
 
         </div>
 
         <div class="post-footer">
 
           <div class="stats">
-            <span>♡ 24 إعجاب</span>
-            <span>💬 15 تعليق</span>
+            <span> {{ post.likes.count }} إعجاب</span>
+            <span> {{ post.comments.count }} تعليق</span>
           </div>
 
-          <a href="{%url 'community:details_post_view'%}" class="join-btn">
+          <a href="{%url 'community:details_post_view' post.id%}" class="join-btn">
             دخول النقاش
           </a>
 
         </div>
 
       </div>
+      {% endfor %}
+      {% else %}
 
-      <!-- POST 2 -->
+    <div class="empty-posts">
 
-      <div class="post">
+        لا توجد نقاشات حاليًا
 
-        <div class="post-header">
+    </div>
 
-          <div class="user">
+{% endif %}
 
-            <div class="avatar yellow">
-              أ
-            </div>
-
-            <div class="user-info">
-              <h4>أحمد</h4>
-              <span>أب • منذ 5 ساعات</span>
-            </div>
-
-          </div>
-
-          <div class="menu-wrapper">
-
-                <button class="menu-btn">
-                    ⋯
-                </button>
-
-                <div class="dropdown-menu">
-
-                    <a href="#">
-                        🚩 إبلاغ
-                    </a>
-
-                   
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="post-text">
-          جرّبت اليوم أسوي بانكيك للأطفال بأشكال كرتونية،
-          وأخيرًا ولدي أكل كامل فطوره 😂
-        </div>
-
-        <div class="tags">
-
-          <a href="#" class="tag">#التغذية</a>
-          <a  href="#" class="tag">#أفكار_للأطفال</a>
-          <a  href="#" class="tag">#وصفات</a>
-
-        </div>
-
-        <div class="post-footer">
-
-          <div class="stats">
-            <span>♡ 42 إعجاب</span>
-            <span>💬 31 تعليق</span>
-          </div>
-
-          <button class="join-btn">
-            دخول النقاش
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- POST 3 -->
-
-      <div class="post">
-
-        <div class="post-header">
-
-          <div class="user">
-
-            <div class="avatar purple">
-              د
-            </div>
-
-            <div class="user-info">
-              <h4>د. نوره</h4>
-              <span>مختصة • منذ 8 ساعات</span>
-            </div>
-
-          </div>
-
-          <div class="menu-wrapper">
-
-                <button class="menu-btn">
-                    ⋯
-                </button>
-
-                <div class="dropdown-menu">
-
-                    <a href="#">
-                        🚩 إبلاغ
-                    </a>
-
-                    
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="post-text">
-          تذكير بسيط لكل الأهالي:
-          لا تضغطون على أنفسكم كثير،
-          وجودكم مع أطفالكم أهم من أي شيء ❤️
-        </div>
-
-        <div class="tags">
-
-          <a href="#" class="tag">#نصائح</a>
-          <a href="#" class="tag">#دعم_نفسي</a>
-          <a  href="#" class="tag">#الأهل</a>
-
-        </div>
-
-        <div class="post-footer">
-
-          <div class="stats">
-            <span>♡ 89 إعجاب</span>
-            <span>💬 56 تعليق</span>
-          </div>
-
-          <button class="join-btn">
-            دخول النقاش
-          </button>
-
-        </div>
-
-      </div>
 
     </div>
 
