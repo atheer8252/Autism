@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'plans',
     'educational_videos',
     'activity',
+    'support_map',
 ]
 SITE_ID = 1
 
