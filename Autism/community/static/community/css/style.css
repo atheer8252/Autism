@@ -8,8 +8,8 @@
 }
 
 .main,
-.community-sidebar{
-  direction:rtl;
+.community-sidebar {
+  direction: rtl;
 }
 
 /* SIDEBAR */
@@ -48,8 +48,8 @@
   border-bottom:1px solid #f0f0f0;
 }
 
-.topic:last-child{
-  border-bottom:none;
+.topic:last-child {
+  border-bottom: none;
 }
 
 .topic-left{
@@ -68,20 +68,20 @@
   font-size:13px;
 }
 
-.green{
-  background:#eef8e8;
+.green {
+  background: #eef8e8;
 }
 
-.orange{
-  background:#fff1e4;
+.orange {
+  background: #fff1e4;
 }
 
-.blue{
-  background:#eaf2ff;
+.blue {
+  background: #eaf2ff;
 }
 
-.mint{
-  background:#e8fff1;
+.mint {
+  background: #e8fff1;
 }
 
 .count{
@@ -131,8 +131,8 @@
 
 /* MAIN */
 
-.main{
-  flex:1;
+.main {
+  flex: 1;
 }
 
 .search{
@@ -181,16 +181,16 @@
   font-size:15px;
 }
 
-.red{
-  background:#dd5c39;
+.red {
+  background: #dd5c39;
 }
 
-.yellow{
-  background:#d7aa46;
+.yellow {
+  background: #d7aa46;
 }
 
-.purple{
-  background:#7a3fd0;
+.purple {
+  background: #7a3fd0;
 }
 
 .user-info h4{
@@ -267,8 +267,8 @@
   transition:0.2s;
 }
 
-.tag:hover{
-  color:#4d5b3d;
+.tag:hover {
+  color: #4d5b3d;
 }
 
 .post-footer{
@@ -299,20 +299,20 @@
   font-size:9px;
 }
 
-.join-btn:hover{
-  background:#f5f5f5;
+.join-btn:hover {
+  background: #f5f5f5;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:1000px){
+@media(max-width:1000px) {
 
-  .community-container{
-    flex-direction:column;
+  .community-container {
+    flex-direction: column;
   }
 
-  .community-sidebar{
-    width:100%;
+  .community-sidebar {
+    width: 100%;
   }
 
 }
@@ -374,9 +374,9 @@
 
 .form-input:focus,
 .form-select:focus,
-.form-textarea:focus{
-    border-color: #8A9B72;
-    background: white;
+.form-textarea:focus {
+  border-color: #8A9B72;
+  background: white;
 }
 
 .form-textarea{
@@ -400,9 +400,9 @@
     transition: 0.2s;
 }
 
-.tag:hover{
-    background: #dfe8d3;
-    color: #5C6B48;
+.tag:hover {
+  background: #dfe8d3;
+  color: #5C6B48;
 }
 
 .upload-box{
@@ -454,8 +454,8 @@
     font-weight: 700;
 }
 
-.publish-btn:hover{
-    background: #73835d;
+.publish-btn:hover {
+  background: #73835d;
 }
 
 .tags-note{
@@ -465,7 +465,7 @@
     font-size:11px;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
 
     .create-card{
         padding:20px;
@@ -778,7 +778,7 @@
     margin-top: 20px;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
 
     .discussion-card,
     .comment-card,
