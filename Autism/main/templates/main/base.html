@@ -42,7 +42,6 @@
 
             <div class="sidebar-hr"></div>
 
-            <!-- Scrollable nav area -->
             <nav class="nav-scroll">
 
 
@@ -55,7 +54,6 @@
                     </a>
                 </div>
 
-                <!-- ── إدارة الأطفال ───────────────────────── -->
                 <div class="nav-group">
                     <div class="nav-group-label">إدارة الأطفال</div>
 
@@ -75,7 +73,6 @@
                 {% endif %}> -->
                 </div>
 
-                <!-- ── المتابعة ───────────────────────────── -->
                 <div class="nav-group">
                     <div class="nav-group-label">المتابعة</div>
 
@@ -95,7 +92,6 @@
                     </a>
                 </div>
 
-                <!-- ── المجتمع ────────────────────────────── -->
                 <div class="nav-group">
                     <div class="nav-group-label">المجتمع</div>
 
@@ -108,7 +104,6 @@
                     </a>
                 </div>
 
-                <!-- ── الدعم ──────────────────────────────── -->
                 <div class="nav-group">
                     <div class="nav-group-label">الدعم</div>
 
@@ -123,7 +118,6 @@
                     </a>
                 </div>
 
-                <!-- ── الإعدادات ──────────────────────────── -->
                 <div class="nav-group">
                     <div class="nav-group-label">الإعدادات</div>
 
@@ -134,14 +128,11 @@
                 </div>
 
             </nav>
-            <!-- /nav-scroll -->
 
             <div class="sidebar-hr"></div>
 
-            <!-- ── Profile (pinned at bottom) ──────────────── -->
             <div class="sidebar-profile">
                 <a href="{%url 'accounts:profile'%}" class="profile-card">
-                    <!-- avatar → right in RTL -->
                     <div class="profile-avatar">
                         {% block user_initial %}م{% endblock %}
                     </div>
@@ -149,31 +140,34 @@
                         <div class="profile-name">{% block user_name %}اسم المستخدم{% endblock %}</div>
                         <div class="profile-role">{% block user_role %}ولي الأمر{% endblock %}</div>
                     </div>
-                    <!-- arrow → left in RTL -->
                     <i class="bi bi-chevron-left profile-arrow"></i>
                 </a>
+
+                <form method="POST" action="{% url 'accounts:logout' %}" class="logout-form">
+                    {% csrf_token %}
+
+                    <button type="submit" class="logout-btn">
+                        <span>تسجيل الخروج</span>
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </form>
             </div>
 
         </aside>
-        <!-- /sidebar -->
 
 
-        <!-- ═══════════════════════════════════════════════════════════
-         MAIN CONTENT AREA
-    ═══════════════════════════════════════════════════════════ -->
         <div class="main-wrapper">
 
             <main class="page-body">
                 {% block content %}{% endblock %}
             </main>
 
-            <!-- ── Footer ──────────────────────────────────── -->
+
+
             <footer class="site-footer">
 
-                <!-- top grid: 4 columns -->
                 <div class="footer-top">
 
-                    <!-- col 1: brand -->
                     <div class="footer-brand-col">
                         <a href="#" class="footer-logo">
                             <div class="footer-logo-circle">
@@ -187,7 +181,6 @@
 
                     </div>
 
-                    <!-- col 2: استكشاف -->
                     <div>
                         <div class="footer-col-title">استكشاف</div>
                         <ul class="footer-col-links">
@@ -197,7 +190,6 @@
                         </ul>
                     </div>
 
-                    <!-- col 3: الموارد -->
                     <div>
                         <div class="footer-col-title">الموارد</div>
                         <ul class="footer-col-links">
@@ -208,7 +200,6 @@
                         </ul>
                     </div>
 
-                    <!-- col 4: ابقَ على تواصل -->
                     <div>
                         <div class="footer-newsletter-title">
                             <i class="bi bi-bell"></i>
@@ -224,23 +215,17 @@
                     </div>
 
                 </div>
-                <!-- bottom bar -->
                 <div class="footer-bottom">
-                    <!-- right in RTL: copyright -->
                     <span class="footer-copy">
                         &copy; {% now "Y" %} إحتواء. جميع الحقوق محفوظة. صُنع بمحبة للآباء والأمهات.
                     </span>
-                    <!-- left in RTL: legal links -->
-
                 </div>
 
             </footer>
 
         </div>
-        <!-- /main-wrapper -->
 
     </div>
-    <!-- /app-shell -->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

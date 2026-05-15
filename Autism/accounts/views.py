@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from .forms import SignUpForm
 
@@ -55,6 +55,11 @@ def signin_view(request):
             messages.error(request, 'بيانات الدخول خاطئة')
 
     return render(request, 'accounts/signin.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect("accounts:signin")
 
 def reset_view(request):
     return render(request, 'accounts/reset-password.html')
