@@ -17,3 +17,6 @@ def details_post_view (request:HttpResponse):
 
 def likes_view(request):
     return render(request, 'community/likes.html')
+
+def saved_centers_view(request):
+    return render(request, 'community/saved_centers.html')
